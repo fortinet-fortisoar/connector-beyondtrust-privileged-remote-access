@@ -1,0 +1,1476 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "5dd88da6-ec3c-4479-a488-515682c7e91a",
+      "@type": "WorkflowCollection",
+      "name": "Sample - BeyondTrust Privileged Remote Access - 1.0.0",
+      "description": "BeyondTrust Privileged Remote Access controls, manages, and audits privileged accounts and credentials. This enables just-in-time, zero trust access to on-premises and cloud resources by internal, external, and third-party users.",
+      "visible": true,
+      "image": null,
+      "recordTags": [
+        "BeyondTrust",
+        "beyondtrust-privileged-remote-access"
+      ],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "10e2cab4-d4b4-4207-990c-5c9488a0690a",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Retrieves a list of accounts from vault in BeyondTrust based on the filter criteria like name, type, account group, and any other details you have specified.",
+          "name": "Get All Accounts From Vault",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/bafbf47b-d672-4ddd-b476-6856e55a7af8",
+          "steps": [
+            {
+              "uuid": "bafbf47b-d672-4ddd-b476-6856e55a7af8",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "0e7104c7-68bd-46bd-9932-f3e35bb51d8b",
+                "title": "BeyondTrust Privileged Remote Access: Get All Accounts From Vault",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "afb6c2fc-fdc3-453d-9f39-d0628225acce",
+              "@type": "WorkflowStep",
+              "name": "Get All Accounts From Vault",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": {
+                  "include_personal": false
+                },
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "get_all_accounts_in_vault",
+                "operationTitle": "Get All Accounts From Vault",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "6d9717b9-7780-4f22-83a1-af0b418d8c09",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Accounts From Vault",
+              "sourceStep": "/api/3/workflow_steps/bafbf47b-d672-4ddd-b476-6856e55a7af8",
+              "targetStep": "/api/3/workflow_steps/afb6c2fc-fdc3-453d-9f39-d0628225acce"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "72556c6f-5442-4b50-ab58-d68029b2082b",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Creates a account in BeyondTrust vault.",
+          "name": "Create a Account in BeyondTrust Vault",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/de4eb2dc-3d54-4bbb-bcfb-c52a8c369abe",
+          "steps": [
+            {
+              "uuid": "de4eb2dc-3d54-4bbb-bcfb-c52a8c369abe",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "0aba6080-68a9-4b82-a121-b1b7d3034bbf",
+                "title": "BeyondTrust Privileged Remote Access: Create a Account in BeyondTrust Vault",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "0236655e-0d5e-4f6e-b18e-79375234b9c2",
+              "@type": "WorkflowStep",
+              "name": "Create a Account in BeyondTrust Vault",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "create_account_in_vault",
+                "operationTitle": "Create a Account in BeyondTrust Vault",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "029977da-2026-4ac6-b336-d141e8e852c9",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Create a Account in BeyondTrust Vault",
+              "sourceStep": "/api/3/workflow_steps/de4eb2dc-3d54-4bbb-bcfb-c52a8c369abe",
+              "targetStep": "/api/3/workflow_steps/0236655e-0d5e-4f6e-b18e-79375234b9c2"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "1c9596b1-e86f-434e-a314-536fdc4f29c5",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Deletes a accounts from vault in BeyondTrust. Note: This action cannot delete personal account.",
+          "name": "Delete Account From Vault",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/864f8601-061d-4557-bb6b-69b67913a5f0",
+          "steps": [
+            {
+              "uuid": "864f8601-061d-4557-bb6b-69b67913a5f0",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "37dab4dd-4203-4769-9cf7-7f2fef780dea",
+                "title": "BeyondTrust Privileged Remote Access: Delete Account From Vault",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "9a3f3e51-bcef-4343-a98f-4d8a3648aceb",
+              "@type": "WorkflowStep",
+              "name": "Delete Account From Vault",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "delete_account_in_vault",
+                "operationTitle": "Delete Account From Vault",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "84ebf502-8a31-4e7a-9f96-13623e568986",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete Account From Vault",
+              "sourceStep": "/api/3/workflow_steps/864f8601-061d-4557-bb6b-69b67913a5f0",
+              "targetStep": "/api/3/workflow_steps/9a3f3e51-bcef-4343-a98f-4d8a3648aceb"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "a2c8cc8f-c11a-4820-8573-4a11b2c4926d",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Checkin or checkout private key or password From Vault in BeyondTrust.",
+          "name": "Checkin or Checkout Credentials From Vault",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/cbc24bb3-242d-4e14-a129-d9a53cea656f",
+          "steps": [
+            {
+              "uuid": "cbc24bb3-242d-4e14-a129-d9a53cea656f",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "d41172ee-66a2-454d-bbaa-45383f7d7da8",
+                "title": "BeyondTrust Privileged Remote Access: Checkin or Checkout Credentials From Vault",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "f46c6ec4-0fc5-4d66-9ad4-e78cbe4c4dcb",
+              "@type": "WorkflowStep",
+              "name": "Checkin or Checkout Credentials From Vault",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "checkin_or_checkout_private_key_or_password",
+                "operationTitle": "Checkin or Checkout Credentials From Vault",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "2c9c110b-5171-4ab5-958b-ad1d435c19bd",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Checkin or Checkout Credentials From Vault",
+              "sourceStep": "/api/3/workflow_steps/cbc24bb3-242d-4e14-a129-d9a53cea656f",
+              "targetStep": "/api/3/workflow_steps/f46c6ec4-0fc5-4d66-9ad4-e78cbe4c4dcb"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "e78213fd-3c5d-4feb-881f-071b44f5a394",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Retrieves a list of account policies from BeyondTrust based on the filter criteria like name and pagination parameters you have specified.",
+          "name": "Get All Vault Account Policies",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/231b9bce-11f8-496d-8337-5101969b41c9",
+          "steps": [
+            {
+              "uuid": "231b9bce-11f8-496d-8337-5101969b41c9",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "80c2d269-8bf8-439a-b885-39482f6036d1",
+                "title": "BeyondTrust Privileged Remote Access: Get All Vault Account Policies",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "cc2042bc-fd77-4ca6-b8d7-fd03bb09ede6",
+              "@type": "WorkflowStep",
+              "name": "Get All Vault Account Policies",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "get_all_vault_account_policies",
+                "operationTitle": "Get All Vault Account Policies",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "260b8c87-392e-4e19-afdd-0ad6eba3fffa",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Vault Account Policies",
+              "sourceStep": "/api/3/workflow_steps/231b9bce-11f8-496d-8337-5101969b41c9",
+              "targetStep": "/api/3/workflow_steps/cc2042bc-fd77-4ca6-b8d7-fd03bb09ede6"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "b54fc6fb-ae16-48dd-82a2-e2419ab81247",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Retrieves a list of account groups from BeyondTrust based on the filter criteria like name and pagination parameters you have specified.",
+          "name": "Get All Vault Account Groups",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/bf4379a6-7d86-4dea-8cdf-7dc91f5ff5a8",
+          "steps": [
+            {
+              "uuid": "bf4379a6-7d86-4dea-8cdf-7dc91f5ff5a8",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "339dfb8b-2111-40a2-a103-5c94b87918f4",
+                "title": "BeyondTrust Privileged Remote Access: Get All Vault Account Groups",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "5ff8c69b-d93f-4582-8d20-97e9b018b7cf",
+              "@type": "WorkflowStep",
+              "name": "Get All Vault Account Groups",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "get_all_vault_account_groups",
+                "operationTitle": "Get All Vault Account Groups",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "d9cf8707-c4f9-40e2-9c9b-b7674fb8f1c1",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Vault Account Groups",
+              "sourceStep": "/api/3/workflow_steps/bf4379a6-7d86-4dea-8cdf-7dc91f5ff5a8",
+              "targetStep": "/api/3/workflow_steps/5ff8c69b-d93f-4582-8d20-97e9b018b7cf"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "7462298b-6e8d-465c-94c1-af3cfce26c62",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Retrieves a list of users from BeyondTrust based on the filter criteria like user name, email ID, security provider ID and any other details you have specified.",
+          "name": "Get All Users",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/82d71492-fe71-4046-b68b-183ec7c6e155",
+          "steps": [
+            {
+              "uuid": "82d71492-fe71-4046-b68b-183ec7c6e155",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "41860d08-fe9a-4a5d-9210-f6b65ec4a563",
+                "title": "BeyondTrust Privileged Remote Access: Get All Users",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "4c32c92f-b62f-4362-8bda-1fd5bfca3246",
+              "@type": "WorkflowStep",
+              "name": "Get All Users",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "get_all_users",
+                "operationTitle": "Get All Users",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "3fc62830-7913-4b1e-bc8a-57ba61c2200e",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Users",
+              "sourceStep": "/api/3/workflow_steps/82d71492-fe71-4046-b68b-183ec7c6e155",
+              "targetStep": "/api/3/workflow_steps/4c32c92f-b62f-4362-8bda-1fd5bfca3246"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "a9b30a6d-6a91-4154-91fb-434db676c760",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Retrieves a list of vault endpoints from vault in BeyondTrust based on the filter criteria like name, hostname, domain name and any other details you have specified.",
+          "name": "Get All Vault Endpoints",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/9e70135e-060c-4e3c-afdc-5537977501db",
+          "steps": [
+            {
+              "uuid": "9e70135e-060c-4e3c-afdc-5537977501db",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "ff897062-e2e9-4ff0-a4a6-7d65a2c6cbc0",
+                "title": "BeyondTrust Privileged Remote Access: Get All Vault Endpoints",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "ce7cebf4-2da7-4749-b9a2-9ad363026804",
+              "@type": "WorkflowStep",
+              "name": "Get All Vault Endpoints",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "get_all_vault_endpoints",
+                "operationTitle": "Get All Vault Endpoints",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "94b5df9a-080c-411d-8475-9277e1ad9001",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Vault Endpoints",
+              "sourceStep": "/api/3/workflow_steps/9e70135e-060c-4e3c-afdc-5537977501db",
+              "targetStep": "/api/3/workflow_steps/ce7cebf4-2da7-4749-b9a2-9ad363026804"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "0bed4902-6d3a-4790-99d9-10ed02cd3740",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Retrieves a list of vendor groups from BeyondTrust based on the filter criteria like name and pagination parameters you have specified.",
+          "name": "Get All Vendor Groups",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/f5668dd7-c531-4956-8498-83fd83af67c5",
+          "steps": [
+            {
+              "uuid": "f5668dd7-c531-4956-8498-83fd83af67c5",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "3c465837-b186-4365-abfc-ec18ce250fec",
+                "title": "BeyondTrust Privileged Remote Access: Get All Vendor Groups",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "2d074613-9f1e-4678-b979-1126879992e5",
+              "@type": "WorkflowStep",
+              "name": "Get All Vendor Groups",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "get_all_vendor_groups",
+                "operationTitle": "Get All Vendor Groups",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "d55fc4ab-ffdb-40be-b1c9-9191ac84a411",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Vendor Groups",
+              "sourceStep": "/api/3/workflow_steps/f5668dd7-c531-4956-8498-83fd83af67c5",
+              "targetStep": "/api/3/workflow_steps/2d074613-9f1e-4678-b979-1126879992e5"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "19b87952-44fa-40c0-ae3f-ebc09f907c7c",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Retrieves a specific of vendor group from BeyondTrust.",
+          "name": "Get Vendor Group",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/87ee06e6-5eb7-4964-abbf-2991218278d6",
+          "steps": [
+            {
+              "uuid": "87ee06e6-5eb7-4964-abbf-2991218278d6",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "fab4a367-dce5-4430-aba2-307b81681947",
+                "title": "BeyondTrust Privileged Remote Access: Get Vendor Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "701c1cba-01c1-4c41-9ba3-394b21d1d032",
+              "@type": "WorkflowStep",
+              "name": "Get Vendor Group",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "get_vendor_group_by_id",
+                "operationTitle": "Get Vendor Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "3b870c90-4c69-4a4a-abdd-d2140cb95f8c",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Vendor Group",
+              "sourceStep": "/api/3/workflow_steps/87ee06e6-5eb7-4964-abbf-2991218278d6",
+              "targetStep": "/api/3/workflow_steps/701c1cba-01c1-4c41-9ba3-394b21d1d032"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "7c6aed27-cd30-4cda-b1ab-ad6a129409b8",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Creates a vendor group in BeyondTrust based specified input parameters.",
+          "name": "Create Vendor Group",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/a59e1c1d-667a-49a0-b6ce-ea66f2705c12",
+          "steps": [
+            {
+              "uuid": "a59e1c1d-667a-49a0-b6ce-ea66f2705c12",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "df1f8107-f727-4d7e-a59e-26430f5a8de1",
+                "title": "BeyondTrust Privileged Remote Access: Create Vendor Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "74bec939-5ecd-47b3-9fea-a534e65703dd",
+              "@type": "WorkflowStep",
+              "name": "Create Vendor Group",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": {
+                  "account_expiration": 30,
+                  "user_added_notification_enabled": true,
+                  "user_expired_notification_enabled": true,
+                  "user_approval_enabled": false
+                },
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "create_vendor_group",
+                "operationTitle": "Create Vendor Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "f5133a46-4168-4434-8ab5-b10a844d7a3e",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Create Vendor Group",
+              "sourceStep": "/api/3/workflow_steps/a59e1c1d-667a-49a0-b6ce-ea66f2705c12",
+              "targetStep": "/api/3/workflow_steps/74bec939-5ecd-47b3-9fea-a534e65703dd"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "0343d6dc-ca52-4b4c-a08f-1588090e4d85",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Updates a vendor group in BeyondTrust based specified input parameters.",
+          "name": "Update Vendor Group",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/686a0fb9-bb78-47e0-8bd6-a858b3bb7501",
+          "steps": [
+            {
+              "uuid": "686a0fb9-bb78-47e0-8bd6-a858b3bb7501",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "7c24dc96-6a4c-42a9-9857-ea09a47a9497",
+                "title": "BeyondTrust Privileged Remote Access: Update Vendor Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "513a66da-1cc3-4c2e-a4ee-6a7fd2796783",
+              "@type": "WorkflowStep",
+              "name": "Update Vendor Group",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": {
+                  "account_expiration": 30,
+                  "user_added_notification_enabled": true,
+                  "user_expired_notification_enabled": true,
+                  "user_approval_enabled": false
+                },
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "update_vendor_group",
+                "operationTitle": "Update Vendor Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "d53d981f-0601-46e2-b9cc-0cea75da8914",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Update Vendor Group",
+              "sourceStep": "/api/3/workflow_steps/686a0fb9-bb78-47e0-8bd6-a858b3bb7501",
+              "targetStep": "/api/3/workflow_steps/513a66da-1cc3-4c2e-a4ee-6a7fd2796783"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "15e9b25a-58b0-4b9d-986a-603120e47846",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Deletes a specific of vendor group from BeyondTrust.",
+          "name": "Delete Vendor Group",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/b6e9b903-fa42-4a98-a549-7bee7b536bd1",
+          "steps": [
+            {
+              "uuid": "b6e9b903-fa42-4a98-a549-7bee7b536bd1",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "447ab75f-6bf6-4e34-8e98-3c94595b2ee2",
+                "title": "BeyondTrust Privileged Remote Access: Delete Vendor Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "6b124e13-ff99-4c51-9c41-b5f86aac2d0d",
+              "@type": "WorkflowStep",
+              "name": "Delete Vendor Group",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "delete_vendor_group",
+                "operationTitle": "Delete Vendor Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "3de3c696-0592-48da-a521-5d63e9a1c4ae",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete Vendor Group",
+              "sourceStep": "/api/3/workflow_steps/b6e9b903-fa42-4a98-a549-7bee7b536bd1",
+              "targetStep": "/api/3/workflow_steps/6b124e13-ff99-4c51-9c41-b5f86aac2d0d"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "f16e7f27-b957-49ae-8b3a-1dedf452883f",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Retrieves a list of users in a vendor group based on the filter criteria like vendor group id and any other details you have specified.",
+          "name": "Get All Users in Vendor Group",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/c18b08b1-36df-4de5-9aa7-65418da94c16",
+          "steps": [
+            {
+              "uuid": "c18b08b1-36df-4de5-9aa7-65418da94c16",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "b991ac3d-d81e-4300-bf34-691d173d86e4",
+                "title": "BeyondTrust Privileged Remote Access: Get All Users in Vendor Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "850bb6de-10bd-4ace-91dc-fc623cdf750e",
+              "@type": "WorkflowStep",
+              "name": "Get All Users in Vendor Group",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "get_all_users_in_vendor_groups",
+                "operationTitle": "Get All Users in Vendor Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "f0d6d21e-e5c9-45b7-8c2b-6ba1af4444a7",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Users in Vendor Group",
+              "sourceStep": "/api/3/workflow_steps/c18b08b1-36df-4de5-9aa7-65418da94c16",
+              "targetStep": "/api/3/workflow_steps/850bb6de-10bd-4ace-91dc-fc623cdf750e"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "9ee02751-d7cb-4346-bc17-d5cc8a19f253",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Retrieves details of user in a vendor group based on the user ID and vendor group ID you have specified.",
+          "name": "Get a User in Vendor Group",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/aa3b0e82-85b6-437a-8ace-6999116be903",
+          "steps": [
+            {
+              "uuid": "aa3b0e82-85b6-437a-8ace-6999116be903",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "f923da11-2110-4b5e-a3fd-dfa5e713ff0f",
+                "title": "BeyondTrust Privileged Remote Access: Get a User in Vendor Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "c19daadc-7420-429e-b494-544a72b9314e",
+              "@type": "WorkflowStep",
+              "name": "Get a User in Vendor Group",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "get_user_in_vendor_groups",
+                "operationTitle": "Get a User in Vendor Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "57ee09c9-deac-4a7d-a180-cdeb81085859",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get a User in Vendor Group",
+              "sourceStep": "/api/3/workflow_steps/aa3b0e82-85b6-437a-8ace-6999116be903",
+              "targetStep": "/api/3/workflow_steps/c19daadc-7420-429e-b494-544a72b9314e"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "d5c1227d-e896-4cf2-a50a-5fe50ef114eb",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Creates a user in a vendor group based on the input parameters specified.",
+          "name": "Create User in Vendor Group",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/e34d8d63-7d18-41ab-9712-5904e4777141",
+          "steps": [
+            {
+              "uuid": "e34d8d63-7d18-41ab-9712-5904e4777141",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "73e2e2bd-5e93-4663-a080-0a380725edab",
+                "title": "BeyondTrust Privileged Remote Access: Create User in Vendor Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "716f6960-baf3-47f1-8117-9305b0b48d86",
+              "@type": "WorkflowStep",
+              "name": "Create User in Vendor Group",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": {
+                  "password_never_expire": true,
+                  "password_reset_next_login": false,
+                  "account_disabled": "false",
+                  "preferred_email_language": "en-us"
+                },
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "create_user_in_vendor_group",
+                "operationTitle": "Create User in Vendor Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "a228be00-d625-4623-a6d1-938c7885b9ed",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Create User in Vendor Group",
+              "sourceStep": "/api/3/workflow_steps/e34d8d63-7d18-41ab-9712-5904e4777141",
+              "targetStep": "/api/3/workflow_steps/716f6960-baf3-47f1-8117-9305b0b48d86"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "e1eb4878-cad2-4435-b980-cb85b2b9fca0",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Removes user in a vendor group based on the user ID and vendor group ID you have specified.",
+          "name": "Remove User in Vendor Group",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/bbeffb3b-dbc3-46ef-afc6-820e3a35322f",
+          "steps": [
+            {
+              "uuid": "bbeffb3b-dbc3-46ef-afc6-820e3a35322f",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "322ca04b-a540-422c-bb3d-733c9c16966e",
+                "title": "BeyondTrust Privileged Remote Access: Remove User in Vendor Group",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "cb87158a-8b50-42fb-9a85-d2de8fc9f40a",
+              "@type": "WorkflowStep",
+              "name": "Remove User in Vendor Group",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "remove_user_from_vendor_groups",
+                "operationTitle": "Remove User in Vendor Group",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "4ed3b4f7-c053-4ca1-9358-ba69b55325ed",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Remove User in Vendor Group",
+              "sourceStep": "/api/3/workflow_steps/bbeffb3b-dbc3-46ef-afc6-820e3a35322f",
+              "targetStep": "/api/3/workflow_steps/cb87158a-8b50-42fb-9a85-d2de8fc9f40a"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "c668de6c-0158-4d62-979b-3e07c6eeccc8",
+          "collection": "/api/3/workflow_collections/5dd88da6-ec3c-4479-a488-515682c7e91a",
+          "triggerLimit": null,
+          "description": "Retrieves a list of group policies from BeyondTrust based on the filter criteria like name and pagination parameters you have specified.",
+          "name": "Get All Group Policies",
+          "tag": "#BeyondTrust Privileged Remote Access",
+          "recordTags": [
+            "BeyondTrust",
+            "beyondtrust-privileged-remote-access"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7e68737a-0b1a-4fa9-8b61-0c26e9df23d6",
+          "steps": [
+            {
+              "uuid": "7e68737a-0b1a-4fa9-8b61-0c26e9df23d6",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "cd0d08ad-674b-4cac-bf14-545605568256",
+                "title": "BeyondTrust Privileged Remote Access: Get All Group Policies",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "7e11e702-fbee-4e1c-81b8-1cce0b885e66",
+              "@type": "WorkflowStep",
+              "name": "Get All Group Policies",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "BeyondTrust Privileged Remote Access",
+                "config": "''",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "beyondtrust-privileged-remote-access",
+                "operation": "get_all_group_policies",
+                "operationTitle": "Get All Group Policies",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "ae34d517-5e42-44eb-aea5-69d40826e1b4",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Group Policies",
+              "sourceStep": "/api/3/workflow_steps/7e68737a-0b1a-4fa9-8b61-0c26e9df23d6",
+              "targetStep": "/api/3/workflow_steps/7e11e702-fbee-4e1c-81b8-1cce0b885e66"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
