@@ -13,7 +13,7 @@ from time import time, ctime
 from connectors.core.connector import ConnectorError, get_logger
 from .constants import *
 
-logger = get_logger('beyondtrust')
+logger = get_logger('beyondtrust-privileged-remote-access')
 
 
 class BeyondTrust(object):

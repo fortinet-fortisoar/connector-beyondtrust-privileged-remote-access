@@ -8,7 +8,7 @@
 from connectors.core.connector import Connector, get_logger, ConnectorError
 from .operations import operations, _check_health
 
-logger = get_logger('beyondtrust')
+logger = get_logger('beyondtrust-privileged-remote-access')
 
 
 class BeyondTrustConnector(Connector):
