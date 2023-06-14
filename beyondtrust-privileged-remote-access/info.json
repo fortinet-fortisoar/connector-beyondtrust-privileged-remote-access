@@ -58,7 +58,7 @@
   "operations": [
     {
       "operation": "get_all_accounts_in_vault",
-      "title": "Get All Accounts From Vault",
+      "title": "Get Account List From Vault",
       "annotation": "get_all_accounts_in_vault",
       "description": "Retrieves a list of accounts from vault in BeyondTrust based on the filter criteria like name, type, account group, and any other details you have specified.",
       "category": "investigation",
@@ -148,9 +148,9 @@
     },
     {
       "operation": "create_account_in_vault",
-      "title": "Create a Account in BeyondTrust Vault",
+      "title": "Create Account in Vault",
       "annotation": "create_account_in_vault",
-      "description": "Creates a account in BeyondTrust vault.",
+      "description": "Creates an account in BeyondTrust vault.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -359,7 +359,7 @@
     },
     {
       "operation": "get_all_vault_account_policies",
-      "title": "Get All Vault Account Policies",
+      "title": "Get Vault Account Policy List",
       "annotation": "get_all_vault_account_policies",
       "description": "Retrieves a list of account policies from BeyondTrust based on the filter criteria like name and pagination parameters you have specified.",
       "category": "investigation",
@@ -424,7 +424,7 @@
     },
     {
       "operation": "get_all_vault_account_groups",
-      "title": "Get All Vault Account Groups",
+      "title": "Get Vault Account Group List",
       "annotation": "get_all_vault_account_groups",
       "description": "Retrieves a list of account groups from BeyondTrust based on the filter criteria like name and pagination parameters you have specified.",
       "category": "investigation",
@@ -475,7 +475,7 @@
     },
     {
       "operation": "get_all_users",
-      "title": "Get All Users",
+      "title": "Get User List",
       "annotation": "get_all_users",
       "description": "Retrieves a list of users from BeyondTrust based on the filter criteria like user name, email ID, security provider ID and any other details you have specified.",
       "category": "investigation",
@@ -555,7 +555,7 @@
     },
     {
       "operation": "get_all_vault_endpoints",
-      "title": "Get All Vault Endpoints",
+      "title": "Get Vault Endpoint List",
       "annotation": "get_all_vault_endpoints",
       "description": "Retrieves a list of vault endpoints from vault in BeyondTrust based on the filter criteria like name, hostname, domain name and any other details you have specified.",
       "category": "investigation",
@@ -629,7 +629,7 @@
     },
     {
       "operation": "get_all_vendor_groups",
-      "title": "Get All Vendor Groups",
+      "title": "Get Vendor Group List",
       "annotation": "get_all_vendor_groups",
       "description": "Retrieves a list of vendor groups from BeyondTrust based on the filter criteria like name and pagination parameters you have specified.",
       "category": "investigation",
@@ -683,40 +683,6 @@
           "administrator_id": ""
         }
       ]
-    },
-    {
-      "operation": "get_vendor_group_by_id",
-      "title": "Get Vendor Group",
-      "annotation": "get_vendor_group_by_id",
-      "description": "Retrieves a specific of vendor group from BeyondTrust.",
-      "category": "investigation",
-      "is_config_required": true,
-      "visible": true,
-      "enabled": true,
-      "parameters": [
-        {
-          "name": "group_id",
-          "title": "Vendor Group ID",
-          "type": "integer",
-          "editable": true,
-          "visible": true,
-          "required": true,
-          "tooltip": "Specify ID of vendor group which to be retrieved from BeyondTrust.",
-          "description": "Specify ID of vendor group which to be retrieved from BeyondTrust."
-        }
-      ],
-      "output_schema": {
-        "id": "",
-        "name": "",
-        "default_policy": "",
-        "account_expiration": "",
-        "user_added_notification_enabled": "",
-        "user_expired_notification_enabled": "",
-        "user_approval_enabled": "",
-        "user_reactivation_enabled": "",
-        "network_restrictions": [],
-        "administrator_id": ""
-      }
     },
     {
       "operation": "create_vendor_group",
@@ -822,6 +788,40 @@
           "required": false,
           "tooltip": "Specify the network address allow list related to network restrictions. you can specify multiple network addresses using comma separator.",
           "description": "(Optional) Specify the network address allow list related to network restrictions. you can specify multiple network addresses using comma separator."
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "name": "",
+        "default_policy": "",
+        "account_expiration": "",
+        "user_added_notification_enabled": "",
+        "user_expired_notification_enabled": "",
+        "user_approval_enabled": "",
+        "user_reactivation_enabled": "",
+        "network_restrictions": [],
+        "administrator_id": ""
+      }
+    },
+    {
+      "operation": "get_vendor_group_by_id",
+      "title": "Get Vendor Group Details",
+      "annotation": "get_vendor_group_by_id",
+      "description": "Retrieves vendor group details based on specified Vendor Group ID from BeyondTrust.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "group_id",
+          "title": "Vendor Group ID",
+          "type": "integer",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "tooltip": "Specify ID of vendor group which to be retrieved from BeyondTrust.",
+          "description": "Specify ID of vendor group which to be retrieved from BeyondTrust."
         }
       ],
       "output_schema": {
@@ -971,7 +971,7 @@
       "operation": "delete_vendor_group",
       "title": "Delete Vendor Group",
       "annotation": "delete_vendor_group",
-      "description": "Deletes a specific of vendor group from BeyondTrust.",
+      "description": "Deletes a specific vendor group from BeyondTrust.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -995,7 +995,7 @@
     },
     {
       "operation": "get_all_users_in_vendor_groups",
-      "title": "Get All Users in Vendor Group",
+      "title": "Get User List in Vendor Group",
       "annotation": "get_all_users_in_vendor_groups",
       "description": "Retrieves a list of users in a vendor group based on the filter criteria like vendor group id and any other details you have specified.",
       "category": "investigation",
@@ -1051,52 +1051,6 @@
           "is_expired": ""
         }
       ]
-    },
-    {
-      "operation": "get_user_in_vendor_groups",
-      "title": "Get a User in Vendor Group",
-      "annotation": "get_user_in_vendor_groups",
-      "description": "Retrieves details of user in a vendor group based on the user ID and vendor group ID you have specified.",
-      "category": "investigation",
-      "is_config_required": true,
-      "visible": true,
-      "enabled": true,
-      "parameters": [
-        {
-          "name": "group_id",
-          "title": "Vendor Group ID",
-          "type": "text",
-          "editable": true,
-          "visible": true,
-          "required": true,
-          "tooltip": "Specify ID of the vendor group from which list of users you want to retrieve.",
-          "description": "Specify ID of the vendor group from which list of users you want to retrieve."
-        },
-        {
-          "name": "user_id",
-          "title": "User ID",
-          "type": "text",
-          "editable": true,
-          "visible": true,
-          "required": true,
-          "tooltip": "Specify ID of the user in vendor group whose details you want to retrieve.",
-          "description": "Specify ID of the user in vendor group whose details you want to retrieve."
-        }
-      ],
-      "output_schema": {
-        "id": "",
-        "username": "",
-        "public_display_name": "",
-        "password_reset_next_login": "",
-        "email_address": "",
-        "account_disabled": "",
-        "last_authenticated_date": "",
-        "is_approved": "",
-        "password_expiration": "",
-        "preferred_email_language": "",
-        "vendor_administrator": "",
-        "is_expired": ""
-      }
     },
     {
       "operation": "create_user_in_vendor_group",
@@ -1232,10 +1186,56 @@
       }
     },
     {
+      "operation": "get_user_in_vendor_groups",
+      "title": "Get User Details in Vendor Group",
+      "annotation": "get_user_in_vendor_groups",
+      "description": "Retrieves details of user in a vendor group based on the user ID and vendor group ID you have specified.",
+      "category": "investigation",
+      "is_config_required": true,
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "group_id",
+          "title": "Vendor Group ID",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "tooltip": "Specify ID of the vendor group from which list of users you want to retrieve.",
+          "description": "Specify ID of the vendor group from which list of users you want to retrieve."
+        },
+        {
+          "name": "user_id",
+          "title": "User ID",
+          "type": "text",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "tooltip": "Specify ID of the user in vendor group whose details you want to retrieve.",
+          "description": "Specify ID of the user in vendor group whose details you want to retrieve."
+        }
+      ],
+      "output_schema": {
+        "id": "",
+        "username": "",
+        "public_display_name": "",
+        "password_reset_next_login": "",
+        "email_address": "",
+        "account_disabled": "",
+        "last_authenticated_date": "",
+        "is_approved": "",
+        "password_expiration": "",
+        "preferred_email_language": "",
+        "vendor_administrator": "",
+        "is_expired": ""
+      }
+    },
+    {
       "operation": "remove_user_from_vendor_groups",
-      "title": "Remove User in Vendor Group",
+      "title": "Remove User from Vendor Group",
       "annotation": "remove_user_from_vendor_groups",
-      "description": "Removes user in a vendor group based on the user ID and vendor group ID you have specified.",
+      "description": "Removes user from a vendor group based on the user ID and vendor group ID you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -1269,7 +1269,7 @@
     },
     {
       "operation": "get_all_group_policies",
-      "title": "Get All Group Policies",
+      "title": "Get Group Policy List",
       "annotation": "get_all_group_policies",
       "description": "Retrieves a list of group policies from BeyondTrust based on the filter criteria like name and pagination parameters you have specified.",
       "category": "investigation",
