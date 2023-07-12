@@ -3,7 +3,7 @@
   "label": "BeyondTrust Privileged Remote Access",
   "description": "BeyondTrust Privileged Remote Access controls, manages, and audits privileged accounts and credentials. This enables just-in-time, zero trust access to on-premises and cloud resources by internal, external, and third-party users.",
   "publisher": "Fortinet",
-  "cs_approved": false,
+  "cs_approved": true,
   "cs_compatible": true,
   "version": "1.0.0",
   "category": "Identity and Access Management",
@@ -119,7 +119,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the page number from which to retrieve the records. Page should be greater than 0.",
+          "placeholder": "Page should be greater than 0",
+          "tooltip": "Specify the page number from which to retrieve the records.",
           "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
         },
         {
@@ -394,7 +395,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the page number from which to retrieve the records. Page should be greater than 0.",
+          "placeholder": "Page should be greater than 0",
+          "tooltip": "Specify the page number from which to retrieve the records.",
           "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
         },
         {
@@ -449,7 +451,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the page number from which to retrieve the records. Page should be greater than 0.",
+          "placeholder": "Page should be greater than 0",
+          "tooltip": "Specify the page number from which to retrieve the records.",
           "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
         },
         {
@@ -490,8 +493,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify username to retrieve from BeyondTrust that match the given username.",
-          "description": "(Optional) Specify username to retrieve from BeyondTrust that match the given username."
+          "tooltip": "Specify username to retrieve user from BeyondTrust that match the given username.",
+          "description": "(Optional) Specify username to retrieve user from BeyondTrust that match the given username."
         },
         {
           "name": "email_address",
@@ -520,7 +523,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the page number from which to retrieve the records. Page should be greater than 0.",
+          "placeholder": "Page should be greater than 0",
+          "tooltip": "Specify the page number from which to retrieve the records.",
           "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
         },
         {
@@ -610,7 +614,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the page number from which to retrieve the records. Page should be greater than 0.",
+          "placeholder": "Page should be greater than 0",
+          "tooltip": "Specify the page number from which to retrieve the records.",
           "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
         },
         {
@@ -654,7 +659,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the page number from which to retrieve the records. Page should be greater than 0.",
+          "placeholder": "Page should be greater than 0",
+          "tooltip": "Specify the page number from which to retrieve the records.",
           "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
         },
         {
@@ -1020,7 +1026,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the page number from which to retrieve the records. Page should be greater than 0.",
+          "placeholder": "Page should be greater than 0",
+          "tooltip": "Specify the page number from which to retrieve the records.",
           "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
         },
         {
@@ -1294,7 +1301,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the page number from which to retrieve the records. Page should be greater than 0.",
+          "placeholder": "Page should be greater than 0",
+          "tooltip": "Specify the page number from which to retrieve the records.",
           "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
         },
         {
