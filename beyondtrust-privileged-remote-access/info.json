@@ -94,8 +94,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Select a account type that you want to retrieve from ",
-          "description": "(Optional) Select a source category from the following options to filter the alerts: Darknet, OSINT,Technical Intelligence ",
+          "tooltip": "Select a account type that you want to retrieve from BeyondTrust.",
+          "description": "(Optional) Select a account type that you want to retrieve from BeyondTrust. You can choose from Password and SSH.",
           "options": [
             "Password",
             "SSH"
@@ -168,7 +168,7 @@
         },
         {
           "name": "username",
-          "title": "User Name",
+          "title": "Username",
           "type": "text",
           "editable": true,
           "visible": true,
@@ -220,8 +220,8 @@
                 "editable": true,
                 "visible": true,
                 "required": true,
-                "tooltip": "Specify the private SSH key that will be injected by reps.",
-                "description": "Specify the private SSH key that will be injected by reps."
+                "tooltip": "Specify the private SSH key that will be injected from vault.",
+                "description": "Specify the private SSH key that will be injected from vault."
               },
               {
                 "name": "private_key_passphrase",
@@ -323,7 +323,7 @@
           "visible": true,
           "required": true,
           "tooltip": "Select operation you want to do on password or private key from account in vault.",
-          "description": "Select operation you want to do on password or private key from account in vault.",
+          "description": "Select operation you want to do on password or private key from account in vault. You can choose from 'Check In' or 'Check Out'",
           "options": [
             "Check In",
             "Check Out"
@@ -477,7 +477,7 @@
       "operation": "get_all_users",
       "title": "Get User List",
       "annotation": "get_all_users",
-      "description": "Retrieves a list of users from BeyondTrust based on the filter criteria like user name, email ID, security provider ID and any other details you have specified.",
+      "description": "Retrieves a list of users from BeyondTrust based on the filter criteria like username, email ID, security provider ID and any other details you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -485,13 +485,13 @@
       "parameters": [
         {
           "name": "username",
-          "title": "User Name",
+          "title": "Username",
           "type": "text",
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify user name to retrieve from BeyondTrust that match the given user name.",
-          "description": "(Optional) Specify user name to retrieve from BeyondTrust that match the given user name."
+          "tooltip": "Specify username to retrieve from BeyondTrust that match the given username.",
+          "description": "(Optional) Specify username to retrieve from BeyondTrust that match the given username."
         },
         {
           "name": "email_address",
@@ -711,7 +711,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "description": "Specify the group policy id associated with the vendor group. Note: The group policy cannot grant administrative privileges."
+          "description": "Specify the group policy ID associated with the vendor group. Note: The group policy cannot grant administrative privileges."
         },
         {
           "name": "administrator_id",
@@ -732,8 +732,8 @@
           "required": false,
           "value": 30,
           "placeholder": "Should be between 1 and 365",
-          "tooltip": "Specify the amount of time until the user accounts expire in the vendor group. The unit of time measured is in days. By default it is set to 30.",
-          "description": "(Optional) Specify the amount of time until the user accounts expire in the vendor group. The unit of time measured is in days. By default it is set to 30. Should be between 1 and 365."
+          "tooltip": "Specify the duration(in days) after user accounts in the vendor group expire. By default, this parameter is set to 30 days.",
+          "description": "(Optional) Specify the duration(in days) after user accounts in the vendor group expire. By default, this parameter is set to 30 days. Should be between 1 and 365."
         },
         {
           "name": "user_added_notification_enabled",
@@ -742,8 +742,8 @@
           "editable": true,
           "visible": true,
           "value": true,
-          "tooltip": "If enabled, the Privileged Remote Access user is notified when a user is added to the vendor group. This value cannot be false if user_approval_enabled is true. The administrator_id is required when this value is true.",
-          "description": "If enabled, the Privileged Remote Access user is notified when a user is added to the vendor group. This value cannot be false if user_approval_enabled is true. The administrator_id is required when this value is true."
+          "tooltip": "If enabled, the Privileged Remote Access user will receive notifications whenever a user is added to the vendor group. Note: cannot be set to 'false' if the 'Require PRA User approval to activate users' parameter is set to 'true'. In such cases, the 'Administrator ID' parameter becomes mandatory and must be provided when enabling this feature.",
+          "description": "If enabled, the Privileged Remote Access user will receive notifications whenever a user is added to the vendor group. Note: cannot be set to 'false' if the 'Require PRA User approval to activate users' parameter is set to 'true'. In such cases, the 'Administrator ID' parameter becomes mandatory and must be provided when enabling this feature."
         },
         {
           "name": "user_expired_notification_enabled",
@@ -752,8 +752,8 @@
           "editable": true,
           "visible": true,
           "value": true,
-          "tooltip": "If enabled, the Privileged Remote Access user is notified when a user has expired in the vendor group. This value cannot be true if user_added_notification_enable is false.",
-          "description": "If enabled, the Privileged Remote Access user is notified when a user has expired in the vendor group. This value cannot be true if user_added_notification_enable is false."
+          "tooltip": "If enabled, the Privileged Remote Access user is notified when a user has expired in the vendor group. Note: This value cannot be true if 'Notify the PRA User when a user is added' parameter is false.",
+          "description": "If enabled, the Privileged Remote Access user is notified when a user has expired in the vendor group. Note: This value cannot be true if 'Notify the PRA User when a user is added' parameter is false."
         },
         {
           "name": "user_approval_enabled",
@@ -762,8 +762,8 @@
           "editable": true,
           "visible": true,
           "value": false,
-          "tooltip": "If enabled, approval by a Privileged Remote Access user is required to activate users in the vendor group. The administrator_id is required when this value is true.",
-          "description": "If enabled, approval by a Privileged Remote Access user is required to activate users in the vendor group. The administrator_id is required when this value is true.",
+          "tooltip": "If enabled, approval by a Privileged Remote Access user is required to activate users in the vendor group. Note: The 'Administrator ID' parameter is required when this value is true.",
+          "description": "If enabled, approval by a Privileged Remote Access user is required to activate users in the vendor group. Note: The 'Administrator ID' is required when this value is true.",
           "onchange": {
             "true": [
               {
@@ -874,8 +874,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the group policy id associated with the vendor group. Note: The group policy cannot grant administrative privileges.",
-          "description": "(Optional) Specify the group policy id associated with the vendor group. Note: The group policy cannot grant administrative privileges."
+          "tooltip": "Specify the group policy ID associated with the vendor group. Note: The group policy cannot grant administrative privileges.",
+          "description": "(Optional) Specify the group policy ID associated with the vendor group. Note: The group policy cannot grant administrative privileges."
         },
         {
           "name": "account_expiration",
@@ -997,7 +997,7 @@
       "operation": "get_all_users_in_vendor_groups",
       "title": "Get User List in Vendor Group",
       "annotation": "get_all_users_in_vendor_groups",
-      "description": "Retrieves a list of users in a vendor group based on the filter criteria like vendor group id and any other details you have specified.",
+      "description": "Retrieves a list of users in a vendor group based on the filter criteria like vendor group ID and any other details you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -1074,7 +1074,7 @@
         },
         {
           "name": "username",
-          "title": "User Name",
+          "title": "Username",
           "type": "text",
           "editable": true,
           "visible": true,
