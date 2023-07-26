@@ -39,6 +39,11 @@ class BeyondTrust(object):
                 headers['Content-Type'] = 'application/json'
             response = requests.request(method, service_endpoint, headers=headers,
                                         data=json.dumps(data) if data else None, params=params, verify=self._verify_ssl)
+            try:
+                from connectors.debug_utils.curl_script import make_curl
+                make_curl(method, endpoint, headers=headers, params=params, data=data, verify_ssl=self.verify_ssl)
+            except Exception as err:
+                logger.error(f"Error in curl utils: {str(err)}")
             logger.debug("API Response Status Code: {0}".format(response.status_code))
             logger.debug("API Response: {0}".format(response.text))
             if response.ok:
