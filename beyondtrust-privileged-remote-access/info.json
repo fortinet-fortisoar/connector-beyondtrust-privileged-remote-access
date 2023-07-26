@@ -717,6 +717,7 @@
           "editable": true,
           "visible": true,
           "required": true,
+          "tooltip": "Specify the group policy ID associated with the vendor group. Note: The group policy cannot grant administrative privileges.",
           "description": "Specify the group policy ID associated with the vendor group. Note: The group policy cannot grant administrative privileges."
         },
         {
@@ -990,7 +991,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of vendor group which to be retrieved from BeyondTrust.",
+          "tooltip": "Specify ID of vendor group which to be deleted from BeyondTrust.",
           "description": "Specify ID of vendor group which to be deleted from BeyondTrust."
         }
       ],
@@ -1161,8 +1162,8 @@
           "visible": true,
           "required": false,
           "value": "false",
-          "tooltip": "Specify the password of user to be created in Vendor Group.",
-          "description": "Specify whether this account will be disabled. If true, the vendor user is not allowed to log in"
+          "tooltip": "Specify whether this account will be disabled. If true, the vendor user is not allowed to login",
+          "description": "Specify whether this account will be disabled. If true, the vendor user is not allowed to login."
         },
         {
           "name": "preferred_email_language",
