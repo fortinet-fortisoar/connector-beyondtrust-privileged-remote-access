@@ -39,6 +39,11 @@ class BeyondTrust(object):
                 headers['Content-Type'] = 'application/json'
             response = requests.request(method, service_endpoint, headers=headers,
                                         data=json.dumps(data) if data else None, params=params, verify=self._verify_ssl)
+            try:
+                from connectors.debug_utils.curl_script import make_curl
+                make_curl(method, endpoint, headers=headers, params=params, data=data, verify_ssl=self.verify_ssl)
+            except Exception as err:
+                logger.error(f"Error in curl utils: {str(err)}")
             logger.debug("API Response Status Code: {0}".format(response.status_code))
             logger.debug("API Response: {0}".format(response.text))
             if response.ok:
@@ -141,7 +146,7 @@ def build_payload(params={}, bool_to_str=True):
             payload[k] = build_payload(v)
         elif type(v) is bool and bool_to_str:
             payload[k] = 'true' if v else 'false'
-        elif type(v) is bool or v:
+        elif isinstance(v, (bool, int)) or v:
             payload[k] = v
     return payload
 
@@ -202,7 +207,7 @@ def get_all_vendor_groups(config, params):
     bt = BeyondTrust(config)
     endpoint = VENDOR_ENDPOINT
     group_id = params.pop('group_id', '')
-    if group_id:
+    if group_id or group_id == 0:
         endpoint += '/{0}'.format(group_id)
     params_dict = build_payload(params)
     response = bt.make_rest_call(method='GET', endpoint=endpoint, params=params_dict)
@@ -214,7 +219,7 @@ def create_or_update_vendor_group(config, params):
     endpoint = VENDOR_ENDPOINT
     group_id = params.pop('group_id', '')
     method = 'POST'
-    if group_id:
+    if group_id or group_id == 0:
         endpoint += '/{0}'.format(group_id)
         method = 'PATCH'
     payload = {
@@ -245,7 +250,7 @@ def get_all_users_in_vendor_group(config, params):
     bt = BeyondTrust(config)
     endpoint = VENDOR_USER_ENDPOINT.format(params.pop('group_id'))
     user_id = params.get('user_id')
-    if user_id:
+    if user_id or user_id == 0:
         endpoint += '/{0}'.format(user_id)
     params_dict = build_payload(params)
     response = bt.make_rest_call(method='GET', endpoint=endpoint, params=params_dict)
@@ -280,7 +285,7 @@ def remove_user_from_vendor_group(config, params):
 
 
 def handle_date(str_date):
-    return datetime.strptime(str_date, "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%Y-%m-%dT%H:%M%S+00:00")
+    return datetime.strptime(str_date, "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%Y-%m-%dT%H:%M:%S+00:00")
 
 
 def get_all_group_policies(config, params):
