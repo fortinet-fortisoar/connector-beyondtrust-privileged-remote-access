@@ -19,7 +19,8 @@
         "visible": true,
         "editable": true,
         "required": true,
-        "tooltip": "URL of the BeyondTrust server to which you will connect and perform automated operations.",
+        "tooltip": "URL of the BeyondTrust server to connect and perform automated operations",
+
         "description": "URL of the BeyondTrust server to connect and perform automated operations."
       },
       {
@@ -29,7 +30,7 @@
         "visible": true,
         "editable": true,
         "required": true,
-        "tooltip": "Client ID of the BeyondTrust server to which you will connect and perform automated operations.",
+        "tooltip": "Client ID of the BeyondTrust server to connect and perform automated operations.",
         "description": "Client ID of the BeyondTrust server to connect and perform automated operations. Refer to the section Accessing the BeyondTrust API for information on getting the client ID."
       },
       {
@@ -39,7 +40,7 @@
         "visible": true,
         "editable": true,
         "required": true,
-        "tooltip": "Client Secret used to access the BeyondTrust server to which you will connect and perform the automated operations.",
+        "tooltip": "Client Secret used to access the BeyondTrust server to connect and perform the automated operations.",
         "description": "Client Secret used to access the BeyondTrust server to connect and perform the automated operations. Refer to the section Accessing the BeyondTrust API for information on getting the client secret."
       },
       {
@@ -50,7 +51,7 @@
         "type": "checkbox",
         "name": "verify_ssl",
         "value": true,
-        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not.By default, this option is set as True.",
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set to True.",
         "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set to True."
       }
     ]
@@ -199,7 +200,7 @@
                 "editable": true,
                 "visible": true,
                 "required": true,
-                "tooltip": "Specify the password to retrieve from BeyondTrust vault and inject for a remote access. The password field is write-only.",
+                "tooltip": "Specify the password to retrieve from BeyondTrust vault and inject for a remote access.",
                 "description": "Specify the password to retrieve from BeyondTrust vault and inject for a remote access. The password field is write-only."
               },
               {
@@ -209,7 +210,7 @@
                 "editable": true,
                 "visible": true,
                 "required": false,
-                "tooltip": "Specify The code name of the account policy associated with the account. When left blank, the account policy is inherited from the account group. If there is no account group, it is inherited from the global default.",
+                "tooltip": "Specify The code name of the account policy associated with the account. When left blank, the account policy is inherited from the account group.",
                 "description": "(Optional) Specify The code name of the account policy associated with the account. When left blank, the account policy is inherited from the account group. If there is no account group, it is inherited from the global default."
               }
             ],
@@ -396,7 +397,7 @@
           "visible": true,
           "required": false,
           "placeholder": "Page value should be greater than 0",
-          "tooltip": "Specify the page number from which to retrieve the records. ",
+          "tooltip": "Specify the page number from which to retrieve the records.",
           "description": "(Optional) Specify the page number from which to retrieve the records. Page value should be greater than 0."
         },
         {
@@ -493,7 +494,7 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify username to retrieve user from BeyondTrust that match the given username.",
+          "tooltip": "Specify a username to retrieve a list of users from BeyondTrust vault that match the specified username.",
           "description": "(Optional) Specify a username to retrieve a list of users from BeyondTrust vault that match the specified username."
         },
         {
@@ -759,7 +760,7 @@
           "editable": true,
           "visible": true,
           "value": true,
-          "tooltip": "If enabled, the Privileged Remote Access user is notified when a user has expired in the vendor group. Note: This value cannot be true if 'Notify the PRA User when a user is added' parameter is false.",
+          "tooltip": "Select to notify the Privileged Remote Access (PRA) user when a user has expired in the vendor group. NOTE: Do not select this checkbox if the Notify the PRA User when a user is added checkbox is not selected.",
           "description": "Select to notify the Privileged Remote Access (PRA) user when a user has expired in the vendor group. NOTE: Do not select this checkbox if the Notify the PRA User when a user is added checkbox is not selected."
         },
         {
@@ -769,7 +770,7 @@
           "editable": true,
           "visible": true,
           "value": false,
-          "tooltip": "If enabled, approval by a Privileged Remote Access user is required to activate users in the vendor group.",
+          "tooltip": "Select this option to require an approval by a Privileged Remote Access (PRA) user to activate users in the vendor group.",
           "description": "Select this option to require an approval by a Privileged Remote Access (PRA) user to activate users in the vendor group.",
           "onchange": {
             "true": [
@@ -861,7 +862,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of vendor group which to be updated.",
+          "tooltip": "Specify ID of vendor group to be updated.",
           "description": "Specify ID of vendor group to be updated."
         },
         {
@@ -893,7 +894,7 @@
           "required": false,
           "value": 30,
           "placeholder": "Should be between 1 and 365",
-          "tooltip": "Specify the amount of time until the user accounts expire in the vendor group. The unit of time measured is in days. By default it is set to 30.",
+          "tooltip": "Specify the duration(in days) after which the user accounts in the vendor group expire.",
           "description": "(Optional) Specify the duration(in days) after which the user accounts in the vendor group expire. By default, this parameter is set to 30 days. The specified value should be between 1 and 365."
         },
         {
@@ -903,7 +904,7 @@
           "editable": true,
           "visible": true,
           "value": true,
-          "tooltip": "If enabled, the Privileged Remote Access user is notified when a user is added to the vendor group. This value cannot be false if user_approval_enabled is true. The administrator_id is required when this value is true.",
+          "tooltip": "Select to notify the Privileged Remote Access(PRA) user whenever a user is added to the vendor group. NOTE: If the Require PRA User approval to activate users checkbox is selected then this option must be selected. In such cases, the Administrator ID parameter becomes mandatory and must be provided when enabling this feature.",
           "description": "Select to notify the Privileged Remote Access(PRA) user whenever a user is added to the vendor group. NOTE: If the Require PRA User approval to activate users checkbox is selected then this option must be selected. In such cases, the Administrator ID parameter becomes mandatory and must be provided when enabling this feature."
         },
         {
@@ -913,7 +914,7 @@
           "editable": true,
           "visible": true,
           "value": true,
-          "tooltip": "If enabled, the Privileged Remote Access user is notified when a user has expired in the vendor group. This value cannot be true if user_added_notification_enable is false.",
+          "tooltip": "Select to notify the Privileged Remote Access (PRA) user when a user has expired in the vendor group. NOTE: Do not select this checkbox if the Notify the PRA User when a user is added checkbox is not selected.",
           "description": "Select to notify the Privileged Remote Access (PRA) user when a user has expired in the vendor group. NOTE: Do not select this checkbox if the Notify the PRA User when a user is added checkbox is not selected."
         },
         {
@@ -923,7 +924,7 @@
           "editable": true,
           "visible": true,
           "value": false,
-          "tooltip": "If enabled, approval by a Privileged Remote Access user is required to activate users in the vendor group. The administrator_id is required when this value is true.",
+          "tooltip": "Select this option to require an approval by a Privileged Remote Access (PRA) user to activate users in the vendor group. NOTE: Specify a value in the Administrator ID parameter if this checkbox is selected.",
           "description": "Select this option to require an approval by a Privileged Remote Access (PRA) user to activate users in the vendor group. NOTE: Specify a value in the Administrator ID parameter if this checkbox is selected.",
           "onchange": {
             "true": [
@@ -947,7 +948,7 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify ID of the Privileged Remote Access user who is emailed if notifications are enabled or user approvals are required. The user must have a valid email and SMTP server configured to receive emails.",
+          "tooltip": "Specify the ID of the remote access user who receives emails as notifications or when user approvals are required. The user must have a valid email address, correct SMTP server Configurations, and notifications enabled to receive emails.",
           "description": "(Optional) Specify the ID of the remote access user who receives emails as notifications or when user approvals are required. The user must have a valid email address, correct SMTP server Configurations, and notifications enabled to receive emails."
         },
         {
@@ -957,7 +958,7 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the network address allow list related to network restrictions. you can specify multiple network addresses using comma separator.",
+          "tooltip": "Specify the network address allow list related to network restrictions. you can specify multiple network addresses as comma-separated values.",
           "description": "(Optional) Specify the network address allow list related to network restrictions. you can specify multiple network addresses as comma-separated values."
         }
       ],
@@ -1017,7 +1018,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of the vendor group from which list of users you want to retrieve.",
+          "tooltip": "Specify the ID of the vendor group from which the list of users is to be retrieved.",
           "description": "Specify the ID of the vendor group from which the list of users is to be retrieved."
         },
         {
@@ -1077,7 +1078,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of the vendor group in which you want to create the user.",
+          "tooltip": "Specify the ID of the vendor group in which to create the user.",
           "description": "Specify the ID of the vendor group in which to create the user."
         },
         {
@@ -1087,7 +1088,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the username of user to be created in Vendor Group.",
+          "tooltip": "Specify the username of the user to be created in the vendor group.",
           "description": "Specify the username of the user to be created in the vendor group."
         },
         {
@@ -1097,7 +1098,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the display name of user to be created in Vendor Group.",
+          "tooltip": "Specify the display name of the user to be created in the vendor group.",
           "description": "Specify the display name of the user to be created in the vendor group."
         },
         {
@@ -1107,7 +1108,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the password of user to be created in Vendor Group.",
+          "tooltip": "Specify the password of the user to be created in the vendor group.",
           "description": "Specify the password of the user to be created in the vendor group."
         },
         {
@@ -1117,7 +1118,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the email address of user to be created in Vendor Group.",
+          "tooltip": "Specify the email address of the user to be created in the vendor group.",
           "description": "Specify the email address of the user to be created in the vendor group."
         },
         {
@@ -1127,7 +1128,7 @@
           "editable": true,
           "visible": true,
           "value": true,
-          "tooltip": "Set it to true if you want to password of user to never expire.",
+          "tooltip": "Select this option for the user's password to never expire.",
           "description": "Select this option for the user's password to never expire.",
           "onchange": {
             "false": [
@@ -1151,7 +1152,7 @@
           "editable": true,
           "visible": true,
           "value": false,
-          "tooltip": "Specify whether this vendor user's password must be reset on their next login.",
+          "tooltip": "Select this option to force the user to change their password on their next login.",
           "description": "Select this option to force the user to change their password on their next login. By default, this option is unchecked, i.e., it is set to false."
         },
         {
@@ -1162,7 +1163,7 @@
           "visible": true,
           "required": false,
           "value": "false",
-          "tooltip": "Specify whether this account will be disabled. If true, the vendor user is not allowed to login",
+          "tooltip": "Select this option to disable this user's account. If selected, the user is not allowed to login.",
           "description": "Select this option to disable this user's account. If selected, the user is not allowed to login."
         },
         {
@@ -1174,7 +1175,7 @@
           "required": false,
           "placeholder": "For example en-us",
           "value": "en-us",
-          "tooltip": "Specify the preferred email language of user to be created in Vendor Group.",
+          "tooltip": "Specify the preferred email language of the user to be created in the vendor group.",
           "description": "(Optional) Specify the preferred email language of the user to be created in the vendor group. By default it is set to en-us."
         }
       ],
@@ -1220,7 +1221,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the ID of the user whose details are to be retrieved. ",
+          "tooltip": "Specify the ID of the user whose details are to be retrieved.",
           "description": "Specify the ID of the user whose details are to be retrieved."
         }
       ],
@@ -1256,7 +1257,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of the vendor group from which you want to remove the user.",
+          "tooltip": "Specify the ID of the vendor group from which to remove the user.",
           "description": "Specify the ID of the vendor group from which to remove the user."
         },
         {
@@ -1266,7 +1267,7 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of the user which you want to remove from specified vendor group.",
+          "tooltip": "Specify the ID of the user to remove from the specified vendor group.",
           "description": "Specify the ID of the user to remove from the specified vendor group."
         }
       ],
@@ -1292,7 +1293,7 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify name of group policy which to be retrieved from BeyondTrust.",
+          "tooltip": "Specify the name of the group policy to be retrieved from BeyondTrust. NOTE: Policy name matches are case-insensitive and exact. Partial matches are not returned.",
           "description": "(Optional) Specify the name of the group policy to be retrieved from BeyondTrust. NOTE: Policy name matches are case-insensitive and exact. Partial matches are not returned."
         },
         {
