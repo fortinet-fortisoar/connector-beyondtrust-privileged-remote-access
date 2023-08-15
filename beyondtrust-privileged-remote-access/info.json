@@ -7,7 +7,7 @@
   "cs_compatible": true,
   "version": "1.0.0",
   "category": "Identity and Access Management",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/beyondtrust-privileged-remote-access/621/beyondtrust-privileged-remote-access-v1-0-0",
   "icon_small_name": "BeyondTrust-32X32.png",
   "icon_large_name": "BeyondTrust-80X80.png",
   "configuration": {
@@ -19,8 +19,9 @@
         "visible": true,
         "editable": true,
         "required": true,
-        "tooltip": "URL of the BeyondTrust server to which you will connect and perform automated operations.",
-        "description": "URL of the BeyondTrust server to which you will connect and perform automated operations."
+        "tooltip": "URL of the BeyondTrust server to connect and perform automated operations",
+
+        "description": "URL of the BeyondTrust server to connect and perform automated operations."
       },
       {
         "title": "Client ID",
@@ -29,8 +30,8 @@
         "visible": true,
         "editable": true,
         "required": true,
-        "tooltip": "Client ID of the BeyondTrust server to which you will connect and perform automated operations.",
-        "description": "Client ID of the BeyondTrust server to which you will connect and perform automated operations."
+        "tooltip": "Client ID of the BeyondTrust server to connect and perform automated operations.",
+        "description": "Client ID of the BeyondTrust server to connect and perform automated operations. Refer to the section Accessing the BeyondTrust API for information on getting the client ID."
       },
       {
         "title": "Client Secret",
@@ -38,9 +39,9 @@
         "type": "password",
         "visible": true,
         "editable": true,
-        "required": false,
-        "tooltip": "Client Secret used to access the BeyondTrust server to which you will connect and perform the automated operations.",
-        "description": "Client Secret used to access the BeyondTrust server to which you will connect and perform the automated operations."
+        "required": true,
+        "tooltip": "Client Secret used to access the BeyondTrust server to connect and perform the automated operations.",
+        "description": "Client Secret used to access the BeyondTrust server to connect and perform the automated operations. Refer to the section Accessing the BeyondTrust API for information on getting the client secret."
       },
       {
         "title": "Verify SSL",
@@ -50,8 +51,8 @@
         "type": "checkbox",
         "name": "verify_ssl",
         "value": true,
-        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not.By default, this option is set as True.",
-        "description": "Specifies whether the SSL certificate for the server is to be verified or not.By default, this option is set as True."
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set to True.",
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set to True."
       }
     ]
   },
@@ -60,7 +61,7 @@
       "operation": "get_all_accounts_in_vault",
       "title": "Get Account List From Vault",
       "annotation": "get_all_accounts_in_vault",
-      "description": "Retrieves a list of accounts from vault in BeyondTrust based on the filter criteria like name, type, account group, and any other details you have specified.",
+      "description": "Retrieves a list of accounts from the BeyondTrust vault based on the filter criteria like name, type, account group, and any other input parameters you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -73,8 +74,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify name of account to retrieve from vault that match the given name.",
-          "description": "(Optional) Specify name of account to retrieve from vault that match the given name."
+          "tooltip": "Specify a name to retrieve a list of accounts from BeyondTrust vault that match the specified name.",
+          "description": "(Optional) Specify a name to retrieve a list of accounts from BeyondTrust vault that match the specified name."
         },
         {
           "name": "include_personal",
@@ -84,18 +85,18 @@
           "visible": true,
           "required": false,
           "value": false,
-          "tooltip": "Specify whether you want to include personal accounts in response. By default it retrieves only shared accounts.",
-          "description": "(Optional) Specify whether you want to include personal accounts in response. By default it retrieves only shared accounts."
+          "tooltip": "Select to include personal accounts in response. By default, it only retrieves shared accounts.",
+          "description": "(Optional) Select to include personal accounts in response. By default, it only retrieves shared accounts."
         },
         {
           "name": "type",
-          "title": " Account Type",
+          "title": "Account Type",
           "type": "select",
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Select a account type that you want to retrieve from BeyondTrust.",
-          "description": "(Optional) Select a account type that you want to retrieve from BeyondTrust. You can choose from Password and SSH.",
+          "tooltip": "Select an account type to retrieve from BeyondTrust vault.",
+          "description": "(Optional) Select an account type to retrieve from BeyondTrust vault. You can choose from following options: \nPassword \nSSH",
           "options": [
             "Password",
             "SSH"
@@ -109,8 +110,8 @@
           "visible": true,
           "required": false,
           "placeholder": "",
-          "tooltip": "Filters results to include only accounts that match the given vault account group.",
-          "description": "(Optional) Filters results to include only accounts that match the given vault account group."
+          "tooltip": "Specify an account group ID to filters results that include only those accounts that match the specified BeyondTrust vault account group.",
+          "description": "(Optional) Specify an account group ID to filters results that include only those accounts that match the specified BeyondTrust vault account group."
         },
         {
           "name": "current_page",
@@ -120,8 +121,8 @@
           "visible": true,
           "required": false,
           "placeholder": "Page should be greater than 0",
-          "tooltip": "Specify the page number from which to retrieve the records.",
-          "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
+          "tooltip": "Specify the page number from which to retrieve the records. Page value should be greater than 0.",
+          "description": "(Optional) Specify the page number from which to retrieve the records. Page value should be greater than 0."
         },
         {
           "name": "per_page",
@@ -132,7 +133,7 @@
           "required": false,
           "placeholder": "Should be between 5 and 100.",
           "tooltip": "Specify the count of records that the operation should include for the current page.",
-          "description": "(Optional) Specify the count of records that the operation should include for the current page. It should be between 5 and 100."
+          "description": "(Optional) Specify the count of records that the operation should include for the current page. The value should be between 5 and 100."
         }
       ],
       "output_schema": [
@@ -164,8 +165,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify name of vault account to be created.",
-          "description": "Specify name of vault account to be created."
+          "tooltip": "Specify a name for the BeyondTrust vault account to be created.",
+          "description": "Specify a name for the BeyondTrust vault account to be created."
         },
         {
           "name": "username",
@@ -174,8 +175,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the username that will be injected and/or checked out from vault in BeyondTrust",
-          "description": "Specify the username that will be injected and/or checked out from vault in BeyondTrust"
+          "tooltip": "Specify the username to store in or retrieve from BeyondTrust vault.",
+          "description": "Specify the username to store in or retrieve from BeyondTrust vault. The username can be used as follows: \nInject for authentication during remote access \nStore in Vault \nRetrieve from Vault"
         },
         {
           "name": "type",
@@ -184,8 +185,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify type of account to be created in BeyondTrust vault.",
-          "description": "Specify type of account to be created in BeyondTrust vault.",
+          "tooltip": "Specify the type of account being created in BeyondTrust vault.",
+          "description": "Specify the type of account being created in BeyondTrust vault. You can choose from following options: \nPassword: Select this option when storing login credentials in the form of a username and password. \nSSH: Select this option when storing login credentials in the form of an SSH key and passphrase.",
           "options": [
             "Password",
             "SSH"
@@ -199,8 +200,8 @@
                 "editable": true,
                 "visible": true,
                 "required": true,
-                "tooltip": "Specify the password that will be injected and/or checked out form vault.",
-                "description": "Specify the password that will be injected and/or checked out form vault."
+                "tooltip": "Specify the password to retrieve from BeyondTrust vault and inject for a remote access.",
+                "description": "Specify the password to retrieve from BeyondTrust vault and inject for a remote access. The password field is write-only."
               },
               {
                 "name": "account_policy",
@@ -209,8 +210,8 @@
                 "editable": true,
                 "visible": true,
                 "required": false,
-                "tooltip": "Specify The code name of the Account Policy associated with the account. When the value is not provided, the account policy is inherited from the account group. If there is no account group, it is inherited from the global default.",
-                "description": "(Optional) Specify The code name of the Account Policy associated with the account. When the value is not provided, the account policy is inherited from the account group. If there is no account group, it is inherited from the global default."
+                "tooltip": "Specify The code name of the account policy associated with the account. When left blank, the account policy is inherited from the account group.",
+                "description": "(Optional) Specify The code name of the account policy associated with the account. When left blank, the account policy is inherited from the account group. If there is no account group, it is inherited from the global default."
               }
             ],
             "SSH": [
@@ -221,8 +222,8 @@
                 "editable": true,
                 "visible": true,
                 "required": true,
-                "tooltip": "Specify the private SSH key that will be injected from vault.",
-                "description": "Specify the private SSH key that will be injected from vault."
+                "tooltip": "Specify the private SSH key that to retrieve from BeyondTrust vault and inject for a remote access.",
+                "description": "Specify the private SSH key that to retrieve from BeyondTrust vault and inject for a remote access."
               },
               {
                 "name": "private_key_passphrase",
@@ -231,8 +232,8 @@
                 "editable": true,
                 "visible": true,
                 "required": false,
-                "tooltip": "Specify the passphrase used to unlock the private key.",
-                "description": "(Optional) Specify the passphrase used to unlock the private key."
+                "tooltip": "Specify the passphrase that unlocks the specified private key.",
+                "description": "(Optional) Specify the passphrase that unlocks the specified private key."
               },
               {
                 "name": "private_key_public_cert",
@@ -241,8 +242,8 @@
                 "editable": true,
                 "visible": true,
                 "required": false,
-                "tooltip": "Specify the public certificate used for authentication.",
-                "description": "(Optional) Specify the public certificate used for authentication."
+                "tooltip": "Specify the public certificate to use for authentication.",
+                "description": "(Optional) Specify the public certificate to use for authentication."
               }
             ]
           }
@@ -254,8 +255,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the description of account to be created in vault.",
-          "description": "(Optional) Specify the description of account to be created in vault."
+          "tooltip": "Specify a description of the account to be created in BeyondTrust vault.",
+          "description": "(Optional) Specify a description of the account to be created in BeyondTrust vault."
         },
         {
           "name": "account_group_id",
@@ -264,8 +265,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the unique identifier the Vault Account Group. It is defaults to 1, which is the default Account Group.",
-          "description": "(Optional) Specify the unique identifier the Vault Account Group. It is defaults to 1, which is the default Account Group."
+          "tooltip": "Specify the unique identifier for the BeyondTrust Vault Account Group. It defaults to 1, the default Account Group.",
+          "description": "(Optional) Specify the unique identifier for the BeyondTrust Vault Account Group. It defaults to 1, the default Account Group."
         }
       ],
       "output_schema": {
@@ -284,7 +285,7 @@
       "operation": "delete_account_in_vault",
       "title": "Delete Account From Vault",
       "annotation": "delete_account_in_vault",
-      "description": "Deletes a accounts from vault in BeyondTrust. Note: This action cannot delete personal account.",
+      "description": "Deletes an account from vault in BeyondTrust based on the account ID you have specified. NOTE: This action cannot delete personal account.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -297,8 +298,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the ID of account to delete from vault.",
-          "description": "Specify the ID of account to delete from vault."
+          "tooltip": "Specify the ID of account to delete from the BeyondTrust vault.",
+          "description": "Specify the ID of account to delete from the BeyondTrust vault."
         }
       ],
       "output_schema": {
@@ -310,7 +311,7 @@
       "operation": "checkin_or_checkout_private_key_or_password",
       "title": "Checkin or Checkout Credentials From Vault",
       "annotation": "checkin_or_checkout_private_key_or_password",
-      "description": "Checkin or checkout private key or password From Vault in BeyondTrust.",
+      "description": "Checks in or checks out private key or password from the vault in BeyondTrust based on the account ID you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -323,8 +324,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Select operation you want to do on password or private key from account in vault.",
-          "description": "Select operation you want to do on password or private key from account in vault. You can choose from 'Check In' or 'Check Out'",
+          "tooltip": "Select the operation to perform on credentials associated with the specified account ID.",
+          "description": "Select the operation to perform on credentials associated with the specified account ID. You can choose from following options: \nCheck In \nCheck Out",
           "options": [
             "Check In",
             "Check Out"
@@ -337,8 +338,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the ID of account of which password or private key you want to checkout from vault.",
-          "description": "Specify the ID of account of which password or private key you want to checkout from vault."
+          "tooltip": "Specify the account ID whose credentials you are checking in or checking out from BeyondTrust vault.",
+          "description": "Specify the account ID whose credentials you are checking in or checking out from BeyondTrust vault."
         }
       ],
       "conditional_output_schema": [
@@ -375,8 +376,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify name of account policy which to be retrieved from BeyondTrust.",
-          "description": "(Optional) Specify name of account policy which to be retrieved from BeyondTrust. Note: policy name are always matched case-insensitively and exactly. No partial matches are allowed."
+          "tooltip": "Specify a name of the account policy to filter the account policy list retrieved from BeyondTrust.",
+          "description": "(Optional) Specify a name of the account policy to filter the account policy list retrieved from BeyondTrust. NOTE: Policy name matches are case-insensitive and exact. Partial matches are not returned."
         },
         {
           "name": "code_name",
@@ -385,8 +386,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify code name of account policy which to be retrieved from BeyondTrust.",
-          "description": "(Optional) Specify code name of account which to be retrieved from BeyondTrust. Note: policy name are always matched case-insensitively and exactly. No partial matches are allowed."
+          "tooltip": "Specify a code name of the account policy to filter the account policy list retrieved from BeyondTrust.",
+          "description": "(Optional) Specify a code name of the account policy to filter the account policy list retrieved from BeyondTrust. NOTE: Policy name matches are case-insensitive and exact. Partial matches are not returned."
         },
         {
           "name": "current_page",
@@ -395,9 +396,9 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "placeholder": "Page should be greater than 0",
+          "placeholder": "Page value should be greater than 0",
           "tooltip": "Specify the page number from which to retrieve the records.",
-          "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
+          "description": "(Optional) Specify the page number from which to retrieve the records. Page value should be greater than 0."
         },
         {
           "name": "per_page",
@@ -408,21 +409,21 @@
           "required": false,
           "placeholder": "Should be between 5 and 100.",
           "tooltip": "Specify the count of records that the operation should include for the current page.",
-          "description": "(Optional) Specify the count of records that the operation should include for the current page. It should be between 5 and 100."
+          "description": "(Optional) Specify the count of records that the operation should include for the current page. The value should be between 5 and 100."
         }
       ],
       "output_schema": [
         {
-            "id": "",
-            "code_name": "",
-            "description": "",
-            "auto_rotate_credentials": "",
-            "allow_simultaneous_checkout": "",
-            "name": "",
-            "scheduled_password_rotation": "",
-            "maximum_password_age": ""
+          "id": "",
+          "code_name": "",
+          "description": "",
+          "auto_rotate_credentials": "",
+          "allow_simultaneous_checkout": "",
+          "name": "",
+          "scheduled_password_rotation": "",
+          "maximum_password_age": ""
         }
-    ]
+      ]
     },
     {
       "operation": "get_all_vault_account_groups",
@@ -441,8 +442,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify name of account group which to be retrieved from BeyondTrust.",
-          "description": "(Optional) Specify name of account group which to be retrieved from BeyondTrust. Note: group name are always matched case-insensitively and exactly. No partial matches are allowed."
+          "tooltip": "Specify a name of the account group to filter the account group list retrieved from BeyondTrust.",
+          "description": "(Optional) Specify a name of the account group to filter the account group list retrieved from BeyondTrust. NOTE: Group name matches are case-insensitive and exact. Partial matches are not returned."
         },
         {
           "name": "current_page",
@@ -453,7 +454,7 @@
           "required": false,
           "placeholder": "Page should be greater than 0",
           "tooltip": "Specify the page number from which to retrieve the records.",
-          "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
+          "description": "(Optional) Specify the page number from which to retrieve the records. Page value should be greater than 0."
         },
         {
           "name": "per_page",
@@ -464,23 +465,23 @@
           "required": false,
           "placeholder": "Should be between 5 and 100.",
           "tooltip": "Specify the count of records that the operation should include for the current page.",
-          "description": "(Optional) Specify the count of records that the operation should include for the current page. It should be between 5 and 100."
+          "description": "(Optional) Specify the count of records that the operation should include for the current page. The value should be between 5 and 100."
         }
       ],
       "output_schema": [
         {
-            "id": "",
-            "name": "",
-            "description": "",
-            "account_policy": ""
+          "id": "",
+          "name": "",
+          "description": "",
+          "account_policy": ""
         }
-    ]
+      ]
     },
     {
       "operation": "get_all_users",
       "title": "Get User List",
       "annotation": "get_all_users",
-      "description": "Retrieves a list of users from BeyondTrust based on the filter criteria like username, email ID, security provider ID and any other details you have specified.",
+      "description": "Retrieves a list of users from BeyondTrust based on the filter criteria like username, email ID, security provider ID, and other parameters you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -493,8 +494,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify username to retrieve user from BeyondTrust that match the given username.",
-          "description": "(Optional) Specify username to retrieve user from BeyondTrust that match the given username."
+          "tooltip": "Specify a username to retrieve a list of users from BeyondTrust vault that match the specified username.",
+          "description": "(Optional) Specify a username to retrieve a list of users from BeyondTrust vault that match the specified username."
         },
         {
           "name": "email_address",
@@ -503,8 +504,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify email ID of user to retrieve from BeyondTrust that match the given email ID.",
-          "description": "(Optional) Specify email ID of user to retrieve from BeyondTrust that match the given email ID."
+          "tooltip": "Specify an email ID to retrieve a list of users from BeyondTrust vault that match the specified email address.",
+          "description": "(Optional) Specify an email ID to retrieve a list of users from BeyondTrust vault that match the specified email address."
         },
         {
           "name": "security_provider_id",
@@ -513,8 +514,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify security provider ID of the users you want to retrieve from BeyondTrust.",
-          "description": "(Optional) Specify security provider ID of the users you want to retrieve from BeyondTrust."
+          "tooltip": "Specify a security provider ID to retrieve a list of users from BeyondTrust vault that match the specified security provider ID.",
+          "description": "(Optional) Specify a security provider ID to retrieve a list of users from BeyondTrust vault that match the specified security provider ID."
         },
         {
           "name": "current_page",
@@ -525,7 +526,7 @@
           "required": false,
           "placeholder": "Page should be greater than 0",
           "tooltip": "Specify the page number from which to retrieve the records.",
-          "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
+          "description": "(Optional) Specify the page number from which to retrieve the records. Page value should be greater than 0."
         },
         {
           "name": "per_page",
@@ -536,7 +537,7 @@
           "required": false,
           "placeholder": "Should be between 5 and 100.",
           "tooltip": "Specify the count of records that the operation should include for the current page.",
-          "description": "(Optional) Specify the count of records that the operation should include for the current page. It should be between 5 and 100."
+          "description": "(Optional) Specify the count of records that the operation should include for the current page. The value should be between 5 and 100."
         }
       ],
       "output_schema": [
@@ -561,7 +562,7 @@
       "operation": "get_all_vault_endpoints",
       "title": "Get Vault Endpoint List",
       "annotation": "get_all_vault_endpoints",
-      "description": "Retrieves a list of vault endpoints from vault in BeyondTrust based on the filter criteria like name, hostname, domain name and any other details you have specified.",
+      "description": "Retrieves a list of vault endpoints from vault in BeyondTrust based on the filter criteria like name, hostname, domain name and other parameters you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -574,8 +575,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify name of endpoint to retrieve endpoints that match the given name.",
-          "description": "(Optional) Specify name of endpoint to retrieve endpoints that match the given name."
+          "tooltip": "Specify an endpoint name to retrieve a list of endpoints from BeyondTrust vault that match the specified endpoint.",
+          "description": "(Optional) Specify an endpoint name to retrieve a list of endpoints from BeyondTrust vault that match the specified endpoint."
         },
         {
           "name": "hostname",
@@ -584,8 +585,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify hostname of endpoint to retrieve endpoints that match the given hostname.",
-          "description": "(Optional) Specify hostname of endpoint to retrieve endpoints that match the given hostname."
+          "tooltip": "Specify a hostname to retrieve a list of endpoints from BeyondTrust vault that match the specified hostname.",
+          "description": "(Optional) Specify a hostname to retrieve a list of endpoints from BeyondTrust vault that match the specified hostname."
         },
         {
           "name": "domain_name",
@@ -594,8 +595,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify domain name of endpoint to retrieve endpoints that match the given domain name.",
-          "description": "(Optional) Specify domain name of endpoint to retrieve endpoints that match the given domain name."
+          "tooltip": "Specify a domain name to retrieve a list of endpoints from BeyondTrust vault that match the specified domain name.",
+          "description": "(Optional) Specify a domain name to retrieve a list of endpoints from BeyondTrust vault that match the specified domain name."
         },
         {
           "name": "description",
@@ -604,8 +605,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify description of endpoint to retrieve endpoints that match the given description.",
-          "description": "(Optional) Specify description of endpoint to retrieve endpoints that match the given description."
+          "tooltip": "Specify a description to retrieve a list of endpoints from BeyondTrust vault that match the specified description.",
+          "description": "(Optional) Specify a description to retrieve a list of endpoints from BeyondTrust vault that match the specified description."
         },
         {
           "name": "current_page",
@@ -616,7 +617,7 @@
           "required": false,
           "placeholder": "Page should be greater than 0",
           "tooltip": "Specify the page number from which to retrieve the records.",
-          "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
+          "description": "(Optional) Specify the page number from which to retrieve the records. Page value should be greater than 0."
         },
         {
           "name": "per_page",
@@ -627,7 +628,7 @@
           "required": false,
           "placeholder": "Should be between 5 and 100.",
           "tooltip": "Specify the count of records that the operation should include for the current page.",
-          "description": "(Optional) Specify the count of records that the operation should include for the current page. It should be between 5 and 100."
+          "description": "(Optional) Specify the count of records that the operation should include for the current page. The value should be between 5 and 100."
         }
       ],
       "output_schema": []
@@ -649,8 +650,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify name of vendor group which to be retrieved from BeyondTrust.",
-          "description": "(Optional) Specify name of vendor group which to be retrieved from BeyondTrust."
+          "tooltip": "Specify a name of the vendor group to retrieve a list of vendor groups from BeyondTrust vault that match the specified vendor group name.",
+          "description": "(Optional) Specify a name of the vendor group to retrieve a list of vendor groups from BeyondTrust vault that match the specified vendor group name."
         },
         {
           "name": "current_page",
@@ -661,7 +662,7 @@
           "required": false,
           "placeholder": "Page should be greater than 0",
           "tooltip": "Specify the page number from which to retrieve the records.",
-          "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
+          "description": "(Optional) Specify the page number from which to retrieve the records. Page value should be greater than 0."
         },
         {
           "name": "per_page",
@@ -672,7 +673,7 @@
           "required": false,
           "placeholder": "Should be between 5 and 100.",
           "tooltip": "Specify the count of records that the operation should include for the current page.",
-          "description": "(Optional) Specify the count of records that the operation should include for the current page. It should be between 5 and 100."
+          "description": "(Optional) Specify the count of records that the operation should include for the current page. The value should be between 5 and 100."
         }
       ],
       "output_schema": [
@@ -694,7 +695,7 @@
       "operation": "create_vendor_group",
       "title": "Create Vendor Group",
       "annotation": "create_vendor_group",
-      "description": "Creates a vendor group in BeyondTrust based specified input parameters.",
+      "description": "Creates a vendor group in BeyondTrust based on the Vendor Group Name, Policy ID, and other parameters you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -707,8 +708,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the name of vendor group to be created.",
-          "description": "Specify name of vendor group to be created."
+          "tooltip": "Specify a name for the BeyondTrust vendor group to be created.",
+          "description": "Specify a name for the BeyondTrust vendor group to be created."
         },
         {
           "name": "default_policy",
@@ -717,8 +718,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the group policy ID associated with the vendor group. Note: The group policy cannot grant administrative privileges.",
-          "description": "Specify the group policy ID associated with the vendor group. Note: The group policy cannot grant administrative privileges."
+          "tooltip": "Specify the group policy ID associated with the vendor group. NOTE: The group policy cannot grant administrative privileges.",
+          "description": "Specify the group policy ID associated with the vendor group. NOTE: The group policy cannot grant administrative privileges."
         },
         {
           "name": "administrator_id",
@@ -727,8 +728,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of the Privileged Remote Access user who is emailed if notifications are enabled or user approvals are required. The user must have a valid email and SMTP server configured to receive emails.",
-          "description": "The ID of the Privileged Remote Access user who is emailed if notifications are enabled or user approvals are required. The user must have a valid email and SMTP server configured to receive emails."
+          "tooltip": "Specify the ID of the remote access user who receives emails as notifications or when user approvals are required. The user must have a valid email address, correct SMTP server Configurations, and notifications enabled to receive emails.",
+          "description": "Specify the ID of the remote access user who receives emails as notifications or when user approvals are required. The user must have a valid email address, correct SMTP server Configurations, and notifications enabled to receive emails."
         },
         {
           "name": "account_expiration",
@@ -738,9 +739,9 @@
           "visible": true,
           "required": false,
           "value": 30,
-          "placeholder": "Should be between 1 and 365",
-          "tooltip": "Specify the duration(in days) after user accounts in the vendor group expire. By default, this parameter is set to 30 days.",
-          "description": "(Optional) Specify the duration(in days) after user accounts in the vendor group expire. By default, this parameter is set to 30 days. Should be between 1 and 365."
+          "placeholder": "Value should be between 1 and 365.",
+          "tooltip": "Specify the duration(in days) after which the user accounts in the vendor group expire. By default, this parameter is set to 30 days.",
+          "description": "(Optional) Specify the duration(in days) after which the user accounts in the vendor group expire. By default, this parameter is set to 30 days. The specified value should be between 1 and 365."
         },
         {
           "name": "user_added_notification_enabled",
@@ -749,8 +750,8 @@
           "editable": true,
           "visible": true,
           "value": true,
-          "tooltip": "If enabled, the Privileged Remote Access user will receive notifications whenever a user is added to the vendor group. Note: cannot be set to 'false' if the 'Require PRA User approval to activate users' parameter is set to 'true'. In such cases, the 'Administrator ID' parameter becomes mandatory and must be provided when enabling this feature.",
-          "description": "If enabled, the Privileged Remote Access user will receive notifications whenever a user is added to the vendor group. Note: cannot be set to 'false' if the 'Require PRA User approval to activate users' parameter is set to 'true'. In such cases, the 'Administrator ID' parameter becomes mandatory and must be provided when enabling this feature."
+          "tooltip": "Select to notify the Privileged Remote Access(PRA) user whenever a user is added to the vendor group.",
+          "description": "Select to notify the Privileged Remote Access(PRA) user whenever a user is added to the vendor group. NOTE: If the Require PRA User approval to activate users checkbox is selected then this option must be selected."
         },
         {
           "name": "user_expired_notification_enabled",
@@ -759,8 +760,8 @@
           "editable": true,
           "visible": true,
           "value": true,
-          "tooltip": "If enabled, the Privileged Remote Access user is notified when a user has expired in the vendor group. Note: This value cannot be true if 'Notify the PRA User when a user is added' parameter is false.",
-          "description": "If enabled, the Privileged Remote Access user is notified when a user has expired in the vendor group. Note: This value cannot be true if 'Notify the PRA User when a user is added' parameter is false."
+          "tooltip": "Select to notify the Privileged Remote Access (PRA) user when a user has expired in the vendor group. NOTE: Do not select this checkbox if the Notify the PRA User when a user is added checkbox is not selected.",
+          "description": "Select to notify the Privileged Remote Access (PRA) user when a user has expired in the vendor group. NOTE: Do not select this checkbox if the Notify the PRA User when a user is added checkbox is not selected."
         },
         {
           "name": "user_approval_enabled",
@@ -769,8 +770,8 @@
           "editable": true,
           "visible": true,
           "value": false,
-          "tooltip": "If enabled, approval by a Privileged Remote Access user is required to activate users in the vendor group. Note: The 'Administrator ID' parameter is required when this value is true.",
-          "description": "If enabled, approval by a Privileged Remote Access user is required to activate users in the vendor group. Note: The 'Administrator ID' is required when this value is true.",
+          "tooltip": "Select this option to require an approval by a Privileged Remote Access (PRA) user to activate users in the vendor group.",
+          "description": "Select this option to require an approval by a Privileged Remote Access (PRA) user to activate users in the vendor group.",
           "onchange": {
             "true": [
               {
@@ -780,8 +781,8 @@
                 "editable": true,
                 "visible": true,
                 "value": false,
-                "tooltip": "If enabled, approval by a Privileged Remote Access user is required to extend or reactivate users in the vendor group.",
-                "description": "If enabled, approval by a Privileged Remote Access user is required to extend or reactivate users in the vendor group."
+                "tooltip": "Select this option to require an approval by a Privileged Remote Access (PRA) user to extend or reactivate users in the vendor group.",
+                "description": "Select this option to require an approval by a Privileged Remote Access (PRA) user to extend or reactivate users in the vendor group."
               }
             ]
           }
@@ -794,7 +795,7 @@
           "visible": true,
           "required": false,
           "tooltip": "Specify the network address allow list related to network restrictions. you can specify multiple network addresses using comma separator.",
-          "description": "(Optional) Specify the network address allow list related to network restrictions. you can specify multiple network addresses using comma separator."
+          "description": "(Optional) Specify the network address allow list related to network restrictions. you can specify multiple network addresses as comma-separated values."
         }
       ],
       "output_schema": {
@@ -814,7 +815,7 @@
       "operation": "get_vendor_group_by_id",
       "title": "Get Vendor Group Details",
       "annotation": "get_vendor_group_by_id",
-      "description": "Retrieves vendor group details based on specified Vendor Group ID from BeyondTrust.",
+      "description": "Retrieves the vendor group details from BeyondTrust based on the Vendor Group ID you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -827,8 +828,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of vendor group which to be retrieved from BeyondTrust.",
-          "description": "Specify ID of vendor group which to be retrieved from BeyondTrust."
+          "tooltip": "Specify the ID of vendor group whose details are to be retrieved from BeyondTrust.",
+          "description": "Specify the ID of vendor group whose details are to be retrieved from BeyondTrust."
         }
       ],
       "output_schema": {
@@ -848,7 +849,7 @@
       "operation": "update_vendor_group",
       "title": "Update Vendor Group",
       "annotation": "update_vendor_group",
-      "description": "Updates a vendor group in BeyondTrust based specified input parameters.",
+      "description": "Updates a vendor group in BeyondTrust based on the Vendor Group ID, Vendor Group Name, Policy ID, and other parameters you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -861,8 +862,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of vendor group which to be updated.",
-          "description": "Specify ID of vendor group which to be updated."
+          "tooltip": "Specify ID of vendor group to be updated.",
+          "description": "Specify ID of vendor group to be updated."
         },
         {
           "name": "name",
@@ -871,8 +872,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify new name of the vendor group.",
-          "description": "(Optional) Specify new name of the vendor group."
+          "tooltip": "Specify a new name for the BeyondTrust vendor group to be updated.",
+          "description": "(Optional) Specify a new name for the BeyondTrust vendor group to be updated."
         },
         {
           "name": "default_policy",
@@ -882,7 +883,7 @@
           "visible": true,
           "required": false,
           "tooltip": "Specify the group policy ID associated with the vendor group. Note: The group policy cannot grant administrative privileges.",
-          "description": "(Optional) Specify the group policy ID associated with the vendor group. Note: The group policy cannot grant administrative privileges."
+          "description": "(Optional) Specify the group policy ID associated with the vendor group. NOTE: The group policy cannot grant administrative privileges."
         },
         {
           "name": "account_expiration",
@@ -893,8 +894,8 @@
           "required": false,
           "value": 30,
           "placeholder": "Should be between 1 and 365",
-          "tooltip": "Specify the amount of time until the user accounts expire in the vendor group. The unit of time measured is in days. By default it is set to 30.",
-          "description": "(Optional) Specify the amount of time until the user accounts expire in the vendor group. The unit of time measured is in days. By default it is set to 30. Should be between 1 and 365."
+          "tooltip": "Specify the duration(in days) after which the user accounts in the vendor group expire.",
+          "description": "(Optional) Specify the duration(in days) after which the user accounts in the vendor group expire. By default, this parameter is set to 30 days. The specified value should be between 1 and 365."
         },
         {
           "name": "user_added_notification_enabled",
@@ -903,8 +904,8 @@
           "editable": true,
           "visible": true,
           "value": true,
-          "tooltip": "If enabled, the Privileged Remote Access user is notified when a user is added to the vendor group. This value cannot be false if user_approval_enabled is true. The administrator_id is required when this value is true.",
-          "description": "If enabled, the Privileged Remote Access user is notified when a user is added to the vendor group. This value cannot be false if user_approval_enabled is true. The administrator_id is required when this value is true."
+          "tooltip": "Select to notify the Privileged Remote Access(PRA) user whenever a user is added to the vendor group. NOTE: If the Require PRA User approval to activate users checkbox is selected then this option must be selected. In such cases, the Administrator ID parameter becomes mandatory and must be provided when enabling this feature.",
+          "description": "Select to notify the Privileged Remote Access(PRA) user whenever a user is added to the vendor group. NOTE: If the Require PRA User approval to activate users checkbox is selected then this option must be selected. In such cases, the Administrator ID parameter becomes mandatory and must be provided when enabling this feature."
         },
         {
           "name": "user_expired_notification_enabled",
@@ -913,8 +914,8 @@
           "editable": true,
           "visible": true,
           "value": true,
-          "tooltip": "If enabled, the Privileged Remote Access user is notified when a user has expired in the vendor group. This value cannot be true if user_added_notification_enable is false.",
-          "description": "If enabled, the Privileged Remote Access user is notified when a user has expired in the vendor group. This value cannot be true if user_added_notification_enable is false."
+          "tooltip": "Select to notify the Privileged Remote Access (PRA) user when a user has expired in the vendor group. NOTE: Do not select this checkbox if the Notify the PRA User when a user is added checkbox is not selected.",
+          "description": "Select to notify the Privileged Remote Access (PRA) user when a user has expired in the vendor group. NOTE: Do not select this checkbox if the Notify the PRA User when a user is added checkbox is not selected."
         },
         {
           "name": "user_approval_enabled",
@@ -923,8 +924,8 @@
           "editable": true,
           "visible": true,
           "value": false,
-          "tooltip": "If enabled, approval by a Privileged Remote Access user is required to activate users in the vendor group. The administrator_id is required when this value is true.",
-          "description": "If enabled, approval by a Privileged Remote Access user is required to activate users in the vendor group. The administrator_id is required when this value is true.",
+          "tooltip": "Select this option to require an approval by a Privileged Remote Access (PRA) user to activate users in the vendor group. NOTE: Specify a value in the Administrator ID parameter if this checkbox is selected.",
+          "description": "Select this option to require an approval by a Privileged Remote Access (PRA) user to activate users in the vendor group. NOTE: Specify a value in the Administrator ID parameter if this checkbox is selected.",
           "onchange": {
             "true": [
               {
@@ -934,8 +935,8 @@
                 "editable": true,
                 "visible": true,
                 "value": false,
-                "tooltip": "If enabled, approval by a Privileged Remote Access user is required to extend or reactivate users in the vendor group.",
-                "description": "If enabled, approval by a Privileged Remote Access user is required to extend or reactivate users in the vendor group."
+                "tooltip": "Select this option to require an approval by a Privileged Remote Access (PRA) user to extend or reactivate users in the vendor group.",
+                "description": "Select this option to require an approval by a Privileged Remote Access (PRA) user to extend or reactivate users in the vendor group."
               }
             ]
           }
@@ -947,8 +948,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify ID of the Privileged Remote Access user who is emailed if notifications are enabled or user approvals are required. The user must have a valid email and SMTP server configured to receive emails.",
-          "description": "(Optional) The ID of the Privileged Remote Access user who is emailed if notifications are enabled or user approvals are required. The user must have a valid email and SMTP server configured to receive emails."
+          "tooltip": "Specify the ID of the remote access user who receives emails as notifications or when user approvals are required. The user must have a valid email address, correct SMTP server Configurations, and notifications enabled to receive emails.",
+          "description": "(Optional) Specify the ID of the remote access user who receives emails as notifications or when user approvals are required. The user must have a valid email address, correct SMTP server Configurations, and notifications enabled to receive emails."
         },
         {
           "name": "network_restrictions",
@@ -957,8 +958,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify the network address allow list related to network restrictions. you can specify multiple network addresses using comma separator.",
-          "description": "(Optional) Specify the network address allow list related to network restrictions. you can specify multiple network addresses using comma separator."
+          "tooltip": "Specify the network address allow list related to network restrictions. you can specify multiple network addresses as comma-separated values.",
+          "description": "(Optional) Specify the network address allow list related to network restrictions. you can specify multiple network addresses as comma-separated values."
         }
       ],
       "output_schema": {
@@ -978,7 +979,7 @@
       "operation": "delete_vendor_group",
       "title": "Delete Vendor Group",
       "annotation": "delete_vendor_group",
-      "description": "Deletes a specific vendor group from BeyondTrust.",
+      "description": "Deletes a specific vendor group from BeyondTrust based on the Vendor Group ID you have specified..",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -992,7 +993,7 @@
           "visible": true,
           "required": true,
           "tooltip": "Specify ID of vendor group which to be deleted from BeyondTrust.",
-          "description": "Specify ID of vendor group which to be deleted from BeyondTrust."
+          "description": "Specify the ID of vendor group to be deleted from BeyondTrust."
         }
       ],
       "output_schema": {
@@ -1004,7 +1005,7 @@
       "operation": "get_all_users_in_vendor_groups",
       "title": "Get User List in Vendor Group",
       "annotation": "get_all_users_in_vendor_groups",
-      "description": "Retrieves a list of users in a vendor group based on the filter criteria like vendor group ID and any other details you have specified.",
+      "description": "Retrieves a list of users in a vendor group based on the filter criteria like Vendor Group ID, pagination parameters, and other parameters you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -1017,8 +1018,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of the vendor group from which list of users you want to retrieve.",
-          "description": "Specify ID of the vendor group from which list of users you want to retrieve."
+          "tooltip": "Specify the ID of the vendor group from which the list of users is to be retrieved.",
+          "description": "Specify the ID of the vendor group from which the list of users is to be retrieved."
         },
         {
           "name": "current_page",
@@ -1029,7 +1030,7 @@
           "required": false,
           "placeholder": "Page should be greater than 0",
           "tooltip": "Specify the page number from which to retrieve the records.",
-          "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
+          "description": "(Optional) Specify the page number from which to retrieve the records. Page value should be greater than 0."
         },
         {
           "name": "per_page",
@@ -1040,7 +1041,7 @@
           "required": false,
           "placeholder": "Should be between 5 and 100.",
           "tooltip": "Specify the count of records that the operation should include for the current page.",
-          "description": "(Optional) Specify the count of records that the operation should include for the current page. It should be between 5 and 100."
+          "description": "(Optional) Specify the count of records that the operation should include for the current page. The value should be between 5 and 100."
         }
       ],
       "output_schema": [
@@ -1064,7 +1065,7 @@
       "operation": "create_user_in_vendor_group",
       "title": "Create User in Vendor Group",
       "annotation": "create_user_in_vendor_group",
-      "description": "Creates a user in a vendor group based on the input parameters specified.",
+      "description": "Creates a user in a BeyondTrust vendor group based on the Vendor Group ID, Username, and other input parameters you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -1077,8 +1078,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of the vendor group in which you want to create the user.",
-          "description": "Specify ID of the vendor group from which you want to create the user."
+          "tooltip": "Specify the ID of the vendor group in which to create the user.",
+          "description": "Specify the ID of the vendor group in which to create the user."
         },
         {
           "name": "username",
@@ -1087,8 +1088,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the username of user to be created in Vendor Group.",
-          "description": "Specify the username of user to be created in Vendor Group."
+          "tooltip": "Specify the username of the user to be created in the vendor group.",
+          "description": "Specify the username of the user to be created in the vendor group."
         },
         {
           "name": "public_display_name",
@@ -1097,8 +1098,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the display name of user to be created in Vendor Group.",
-          "description": "Specify the display name of user to be created in Vendor Group."
+          "tooltip": "Specify the display name of the user to be created in the vendor group.",
+          "description": "Specify the display name of the user to be created in the vendor group."
         },
         {
           "name": "password",
@@ -1107,8 +1108,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the password of user to be created in Vendor Group.",
-          "description": "Specify the password of user to be created in Vendor Group."
+          "tooltip": "Specify the password of the user to be created in the vendor group.",
+          "description": "Specify the password of the user to be created in the vendor group."
         },
         {
           "name": "email_address",
@@ -1117,8 +1118,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify the email address of user to be created in Vendor Group.",
-          "description": "Specify the email address of user to be created in Vendor Group."
+          "tooltip": "Specify the email address of the user to be created in the vendor group.",
+          "description": "Specify the email address of the user to be created in the vendor group."
         },
         {
           "name": "password_never_expire",
@@ -1127,8 +1128,8 @@
           "editable": true,
           "visible": true,
           "value": true,
-          "tooltip": "Set it to true if you want to password of user to never expire.",
-          "description": "Set it to true if you want to password of user to never expire.",
+          "tooltip": "Select this option for the user's password to never expire.",
+          "description": "Select this option for the user's password to never expire.",
           "onchange": {
             "false": [
               {
@@ -1138,8 +1139,8 @@
                 "editable": true,
                 "visible": true,
                 "required": true,
-                "tooltip": "Specify the date and time at which the vendor user's password will expire.",
-                "description": "Specify the date and time at which the vendor user's password will expire."
+                "tooltip": "Specify the date and time when the user's password expires.",
+                "description": "Specify the date and time when the user's password expires."
               }
             ]
           }
@@ -1151,8 +1152,8 @@
           "editable": true,
           "visible": true,
           "value": false,
-          "tooltip": "Specify whether this vendor user's password must be reset on their next login.",
-          "description": "Specify whether this vendor user's password must be reset on their next login. By default it is set as false."
+          "tooltip": "Select this option to force the user to change their password on their next login.",
+          "description": "Select this option to force the user to change their password on their next login. By default, this option is unchecked, i.e., it is set to false."
         },
         {
           "name": "account_disabled",
@@ -1162,8 +1163,8 @@
           "visible": true,
           "required": false,
           "value": "false",
-          "tooltip": "Specify whether this account will be disabled. If true, the vendor user is not allowed to login",
-          "description": "Specify whether this account will be disabled. If true, the vendor user is not allowed to login."
+          "tooltip": "Select this option to disable this user's account. If selected, the user is not allowed to login.",
+          "description": "Select this option to disable this user's account. If selected, the user is not allowed to login."
         },
         {
           "name": "preferred_email_language",
@@ -1174,8 +1175,8 @@
           "required": false,
           "placeholder": "For example en-us",
           "value": "en-us",
-          "tooltip": "Specify the preferred email language of user to be created in Vendor Group.",
-          "description": "(Optional) Specify the preferred email language of user to be created in Vendor Group. By default it is set to en-us."
+          "tooltip": "Specify the preferred email language of the user to be created in the vendor group.",
+          "description": "(Optional) Specify the preferred email language of the user to be created in the vendor group. By default it is set to en-us."
         }
       ],
       "output_schema": {
@@ -1197,7 +1198,7 @@
       "operation": "get_user_in_vendor_groups",
       "title": "Get User Details in Vendor Group",
       "annotation": "get_user_in_vendor_groups",
-      "description": "Retrieves details of user in a vendor group based on the user ID and vendor group ID you have specified.",
+      "description": "Retrieves details of user in a BeyondTrust vendor group based on the User ID and Vendor Group ID you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -1210,8 +1211,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of the vendor group from which list of users you want to retrieve.",
-          "description": "Specify ID of the vendor group from which list of users you want to retrieve."
+          "tooltip": "Specify the ID of the vendor group from which to retrieve the list of users.",
+          "description": "Specify the ID of the vendor group from which to retrieve the list of users."
         },
         {
           "name": "user_id",
@@ -1220,8 +1221,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of the user in vendor group whose details you want to retrieve.",
-          "description": "Specify ID of the user in vendor group whose details you want to retrieve."
+          "tooltip": "Specify the ID of the user whose details are to be retrieved.",
+          "description": "Specify the ID of the user whose details are to be retrieved."
         }
       ],
       "output_schema": {
@@ -1243,7 +1244,7 @@
       "operation": "remove_user_from_vendor_groups",
       "title": "Remove User from Vendor Group",
       "annotation": "remove_user_from_vendor_groups",
-      "description": "Removes user from a vendor group based on the user ID and vendor group ID you have specified.",
+      "description": "Removes a user from a BeyondTrust vendor group based on the User ID and Vendor Group ID you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -1256,8 +1257,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of the vendor group from which you want to remove the user.",
-          "description": "Specify ID of the vendor group from which you want to remove the user."
+          "tooltip": "Specify the ID of the vendor group from which to remove the user.",
+          "description": "Specify the ID of the vendor group from which to remove the user."
         },
         {
           "name": "user_id",
@@ -1266,8 +1267,8 @@
           "editable": true,
           "visible": true,
           "required": true,
-          "tooltip": "Specify ID of the user which you want to remove from specified vendor group.",
-          "description": "Specify ID of the user which you want to remove from specified vendor group."
+          "tooltip": "Specify the ID of the user to remove from the specified vendor group.",
+          "description": "Specify the ID of the user to remove from the specified vendor group."
         }
       ],
       "output_schema": {
@@ -1279,7 +1280,7 @@
       "operation": "get_all_group_policies",
       "title": "Get Group Policy List",
       "annotation": "get_all_group_policies",
-      "description": "Retrieves a list of group policies from BeyondTrust based on the filter criteria like name and pagination parameters you have specified.",
+      "description": "Retrieves a list of group policies from BeyondTrust based on the filter criteria like Policy Name and pagination parameters you have specified.",
       "category": "investigation",
       "is_config_required": true,
       "visible": true,
@@ -1292,8 +1293,8 @@
           "editable": true,
           "visible": true,
           "required": false,
-          "tooltip": "Specify name of group policy which to be retrieved from BeyondTrust.",
-          "description": "(Optional) Specify name of group policy which to be retrieved from BeyondTrust. Note: policy name are always matched case-insensitively and exactly. No partial matches are allowed."
+          "tooltip": "Specify the name of the group policy to be retrieved from BeyondTrust. NOTE: Policy name matches are case-insensitive and exact. Partial matches are not returned.",
+          "description": "(Optional) Specify the name of the group policy to be retrieved from BeyondTrust. NOTE: Policy name matches are case-insensitive and exact. Partial matches are not returned."
         },
         {
           "name": "current_page",
@@ -1304,7 +1305,7 @@
           "required": false,
           "placeholder": "Page should be greater than 0",
           "tooltip": "Specify the page number from which to retrieve the records.",
-          "description": "(Optional) Specify the page number from which to retrieve the records. Page should be greater than 0."
+          "description": "(Optional) Specify the page number from which to retrieve the records. Page value should be greater than 0."
         },
         {
           "name": "per_page",
@@ -1315,7 +1316,7 @@
           "required": false,
           "placeholder": "Should be between 5 and 100.",
           "tooltip": "Specify the count of records that the operation should include for the current page.",
-          "description": "(Optional) Specify the count of records that the operation should include for the current page. It should be between 5 and 100."
+          "description": "(Optional) Specify the count of records that the operation should include for the current page. The value should be between 5 and 100."
         }
       ],
       "output_schema": [
